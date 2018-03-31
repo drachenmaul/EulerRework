@@ -11,6 +11,8 @@
 
 unsigned SumDivisibleBy(unsigned n, unsigned limit); //Gibt Summe aller Zahlen unter limit die durch n teilbar sind zurück
 unsigned long long CountRoutes(unsigned n); //Counts Routes through a nxn Square from top-left to bottom-right moving only right and down
+unsigned SumOfDivisors(unsigned number);
+unsigned SumOfProperDivisors(unsigned number);
 
 
 

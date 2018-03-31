@@ -23,3 +23,37 @@ unsigned long long CountRoutes(unsigned n){
 	}
 	return result;
 }
+
+
+
+unsigned SumOfDivisors(unsigned number){
+	unsigned sum=1;
+	unsigned p=2;
+	unsigned j;
+	while(p*p<=number && number > 1){
+		if(number%p==0){
+			j=p*p;
+			number/=p;
+			while(number%p==0){
+				j*=p;
+				number/=p;
+			}
+			sum*=(j-1);
+			sum/=(p-1);
+		}
+		if(p==2)
+			p++;
+		else
+			p+=2;
+	}
+	if(number>1)
+		sum*=(number+1);
+	return sum;
+}
+
+
+
+
+unsigned SumOfProperDivisors(unsigned number){
+	return SumOfDivisors(number)-number;
+}
