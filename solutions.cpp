@@ -68,7 +68,24 @@ void euler3(){
 
 
 
+void euler15(){
+	//How many routes(top left -> bottom right) are there through a 20×20 grid moving only right and down?
+	//Lässt sich über Binomialkoeff lösen
+	//Callgrind imrpovement of 57244
 
+	unsigned n=20;
+	std::cout << CountRoutes(n) << std::endl;
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
@@ -92,7 +109,7 @@ void euler3(){
 
 void euler47(){
 //Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
-//Improvement of 7.811.492.937
+//Improvement of 7.811.492.937, that's a factor 17 on runtime
 
 
 	std::vector<unsigned> primes;
@@ -106,9 +123,6 @@ void euler47(){
 		else
 			n=0;
 	}
-
-
-
 
 
 	std::cout << i-4 << std::endl;
