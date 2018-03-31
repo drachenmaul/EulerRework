@@ -73,25 +73,50 @@ void euler7(){
 	std::cout << primes[10000] << std::endl;
 }
 
+void euler14(){
+	/*The following iterative sequence is defined for the set of positive integers:
 
+n -> n/2 (n is even)
+n -> 3n + 1 (n is odd)
+
+Using the rule above and starting with 13, we generate the following sequence:
+13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
+
+It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
+
+Which starting number, under one million, produces the longest chain?
+	 * */
+
+
+	//Improved by 1.305.853.335
+
+	unsigned chainmax, chainl, chainlmax, n, i;
+
+	for( i = 1 , chainmax = 0 , chainlmax = 0 ; i < 1e6 ; i++){
+		for( n = i , chainl = 0 ; n!=1 ; chainl++){
+			if(n%2 == 0)
+				n/=2;
+			else
+				n=3*n+1;
+		}
+		if(chainl > chainlmax){
+			chainmax = i;
+			chainlmax = chainl;
+		}
+	}
+
+	std::cout << chainmax << std::endl;
+
+
+}
 
 void euler15(){
 	//How many routes(top left -> bottom right) are there through a 20×20 grid moving only right and down?
 	//Lässt sich über Binomialkoeff lösen
-	//Callgrind imrpovement of 57244
+	//Callgrind improvement of 57244
 
 	unsigned n=20;
 	std::cout << CountRoutes(n) << std::endl;
-
-
-
-
-
-
-
-
-
-
 }
 
 
