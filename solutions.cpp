@@ -79,6 +79,25 @@ void euler7(){
 	std::cout << primes[10000] << std::endl;
 }
 
+
+void euler10(){
+	//Find the sum of all the primes below two million.
+	//Improved score by 1.278.750.506, 2x faster than original
+	std::vector<unsigned> primes;
+	unsigned limit = 2e6;
+	initprimelist(limit,primes);
+	unsigned long long sum = 0;
+
+	for(unsigned i = 0 ; i < primes.size() ; i++){
+		sum+=primes[i];
+	}
+
+
+	std::cout << sum << std::endl;
+}
+
+
+
 void euler14(){
 	/*The following iterative sequence is defined for the set of positive integers:
 

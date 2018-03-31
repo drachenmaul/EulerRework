@@ -19,6 +19,8 @@ void euler6();
 void euler7();
 
 
+void euler10();
+
 
 
 void euler14();

@@ -17,7 +17,7 @@ int main(){
 	double start, stop;
 	start=clock();
 
-	euler6();
+	euler10();
 
 
 	stop=clock();
