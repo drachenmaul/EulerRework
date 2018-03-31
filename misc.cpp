@@ -7,6 +7,9 @@
 
 
 
+#include <iostream>
+#include "misc.h"
+
 
 unsigned SumDivisibleBy(unsigned n, unsigned limit){ //Erklärung in Problem 1 Overview
 	unsigned elements=(limit-1)/n;
@@ -57,3 +60,87 @@ unsigned SumOfDivisors(unsigned number){
 unsigned SumOfProperDivisors(unsigned number){
 	return SumOfDivisors(number)-number;
 }
+
+
+
+
+
+unsigned Lettercount(int number){
+	if (number > 1000 || number < -1000){
+		std::cout << "Funktion Lettercount funktioniert nur bis einschließlich +-1000" << std::endl;
+		return -1;
+	}
+	if(number == 1000)
+		return 11;				//Wenn 1000 return "one thousand"
+	unsigned bis19[] = {4, 3, 3, 5, 4, 4, 3, 5, 5, 4, 3, 6, 6, 8, 8, 7, 7, 9, 8, 8}; 	//Länge der Worte zero - nineteen
+	unsigned zehner[] = {6, 6, 5, 5, 5, 7, 6, 6};										//Länge von twenty - ninety
+	unsigned hu = 7;																		//Länge von "hundred"
+	unsigned und = 3;																		//Länge von und
+	unsigned sum=0;																		//rückgabe
+	if(number < 0){		//wenn zahl negative füge ein
+		sum+=5;			//"minus" hinzu
+		number*=-1;		//und mache die Zahl anschließend positiv
+	}
+
+	unsigned length=GetLength(number);
+
+
+
+
+	if (length == 3){		//100 bis max 999
+		unsigned tmp=number;
+		tmp/=100;			//Finde hunderter Stelle raus
+		sum+=bis19[tmp];	//Füge Hunderterzahl hinzu
+		sum+=hu;			//Füge "hundred" hinzu
+		if(number % 100 == 0)//Füge "and" hinzu wenn kein gerader hunderter
+			return sum;		//Wenn glatter hunderter sind wir fertig
+		sum+=und;			//Füge "and" hinzu
+		number-=tmp*100;	//entferne Hunderterstelle
+		length--;			//Passe länge an
+	}
+
+	if(length == 2){		//Zahl von 10 bis 99
+		if(number < 20)
+			sum+=bis19[number];
+		else{
+			if(number%10 != 0)			//20 ist nicht twenty-zero
+				sum+=bis19[number%10];	//Zahl >= 20, füge einerstelle hinzu
+		number/=10;
+		sum+=zehner[number-2];			//Füge 10er-Stelle hinzu
+		}
+	}
+	if(length == 1)
+		sum+=bis19[number];
+
+
+	return sum;
+}
+
+
+
+unsigned GetLength(int NUMBER){
+	unsigned length;
+	if(NUMBER==0)
+		return 1;
+	for(length=0;NUMBER>0;length++){
+		NUMBER/=10;
+	}
+	return length;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,6 +24,9 @@ void euler7();
 void euler14();
 void euler15();
 
+void euler17();
+
+
 void euler21();
 
 
