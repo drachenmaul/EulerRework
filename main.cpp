@@ -7,6 +7,7 @@
 
 #include <ctime>
 #include <iostream>
+#include "solutions.h"
 
 
 
@@ -16,13 +17,12 @@ int main(){
 	double start, stop;
 	start=clock();
 
-	//main code here
+	euler47();
 
 
 	stop=clock();
 
 	std::cout << "Runtime: " << (stop - start)/CLOCKS_PER_SEC << "s" <<std::endl;
-	std::cout << "Runtime: " << (stop - start) << " CPU Cycles" <<std::endl;
 
 
 
