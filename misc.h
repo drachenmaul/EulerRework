@@ -21,6 +21,7 @@ bool CanReverse(unsigned number); //checkt ob zahl in 0 endet
 unsigned reverse(unsigned number);//dreht Zahl um
 bool OnlyOddDigits(unsigned number);
 bool IsReversible(unsigned number); //siehe roblem 145
+bool IsPandigital(unsigned number);
 
 
 #endif /* MISC_H_ */

@@ -35,6 +35,10 @@ void euler21();
 
 
 
+void euler41();
+
+
+
 
 
 void euler47();

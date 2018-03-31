@@ -205,7 +205,26 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 
 
+void euler41(){
+	//What is the largest n-digit pandigital prime that exists?
+	// Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wäre (Summe 1-8/9/10 ist durch 3 teilbar)
 
+	//Speed up by factor 5, improved callgrindscore by 15.000.000.000
+	std::vector<unsigned> primes;
+	initprimelist(1e7,primes);
+
+	unsigned gpand;
+	unsigned i;
+
+
+	for(i=0, gpand=0 ; i<primes.size() ; i++){
+		if(IsPandigital(primes[i])==1)
+			if(primes[i]>gpand)
+				gpand=primes[i];
+	}
+
+	std::cout << gpand << std::endl;
+}
 
 
 
@@ -253,7 +272,7 @@ There are 120 reversible numbers below one-thousand.
 How many reversible numbers are there below one-billion (10^9)?
 
 	*/
-
+	//TODO: mehr optimierung als nur 90% der zahlen auslassen
 
 	unsigned i;
 	unsigned count=0;
