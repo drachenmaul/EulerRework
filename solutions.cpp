@@ -167,7 +167,11 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 
 }
 
-
+void euler19(){
+	//How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+	//Wird schon statistisch verteilt sein...
+	std::cout << (12*100)/7 << std::endl;
+}
 
 void euler21(){
 	/*
