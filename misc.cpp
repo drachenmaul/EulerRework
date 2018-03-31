@@ -130,7 +130,12 @@ unsigned GetLength(int NUMBER){
 
 
 
-
+unsigned SumOfNumbers(unsigned number){//Allg bekannte Formel
+	return number*(number+1)/2;
+}
+unsigned SumOfSquares(unsigned number){//Kann man herleiten und dann per Induktion beweisen, vgl Problem 6 Overview
+	return number*(2*number+1)*(number+1)/6;
+}
 
 
 

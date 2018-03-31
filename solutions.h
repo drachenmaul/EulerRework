@@ -15,7 +15,7 @@ void euler2();
 void euler3();
 
 
-
+void euler6();
 void euler7();
 
 

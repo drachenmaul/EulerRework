@@ -61,7 +61,13 @@ void euler3(){
 
 }
 
+void euler6(){
+	//Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+	//Slightly less efficient than original but scales a lot better
+	unsigned limit=100;
 
+	std::cout << SumOfNumbers(limit)*SumOfNumbers(limit)-SumOfSquares(limit) << std::endl;
+}
 
 
 void euler7(){

@@ -15,6 +15,8 @@ unsigned SumOfDivisors(unsigned number);
 unsigned SumOfProperDivisors(unsigned number);
 unsigned Lettercount(int number); //Gibt Buchstabenanzahl für ausgeschriebenezahl zurück; 342 (three hundred and forty two) gibt 23 zurück
 unsigned GetLength(int number);
+unsigned SumOfSquares(unsigned number); //Sum of square numbers till number
+unsigned SumOfNumbers(unsigned number); //Sum of numbers till number
 
 
 #endif /* MISC_H_ */
