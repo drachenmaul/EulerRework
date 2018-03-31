@@ -142,7 +142,42 @@ unsigned SumOfSquares(unsigned number){//Kann man herleiten und dann per Indukti
 
 
 
+bool CanReverse(unsigned number){
+	if(number%10==0)
+		return false;
+	else
+		return true;
+}
 
+unsigned reverse(unsigned number){
+    unsigned reversed = 0;
+    while (number > 0) {
+        reversed = 10 * reversed + number % 10;
+        number /= 10;
+    }
+   return reversed;
+}
+
+bool OnlyOddDigits(unsigned number){
+    while (number > 0) {
+        if ((number % 10) % 2 == 0)
+        	return false;
+        number /= 10;
+    }
+    return true;
+}
+
+
+bool IsReversible(unsigned number){
+	if(!CanReverse(number))
+		return false;
+
+	number+=reverse(number);
+	if(OnlyOddDigits(number))
+		return true;
+	else
+		return false;
+}
 
 
 

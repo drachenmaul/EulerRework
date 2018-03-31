@@ -243,7 +243,32 @@ void euler47(){
 
 
 
+void euler145(){
+	/*
 
+Some positive integers n have the property that the sum [ n + reverse(n) ] consists entirely of odd (decimal) digits. For instance, 36 + 63 = 99 and 409 + 904 = 1313. We will call such numbers reversible; so 36, 63, 409, and 904 are reversible. Leading zeroes are not allowed in either n or reverse(n).
+
+There are 120 reversible numbers below one-thousand.
+
+How many reversible numbers are there below one-billion (10^9)?
+
+	*/
+
+
+	unsigned i;
+	unsigned count=0;
+	unsigned limit=1e8;  //Should be 1e9, butThere are no 9 digit reversible numbers
+
+	for(i=0;i<limit;i++){
+		if(IsReversible(i))
+			count++;
+	}
+
+	std::cout << count << std::endl;
+
+
+
+}
 
 
 

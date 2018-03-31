@@ -17,6 +17,10 @@ unsigned Lettercount(int number); //Gibt Buchstabenanzahl für ausgeschriebeneza
 unsigned GetLength(int number);
 unsigned SumOfSquares(unsigned number); //Sum of square numbers till number
 unsigned SumOfNumbers(unsigned number); //Sum of numbers till number
+bool CanReverse(unsigned number); //checkt ob zahl in 0 endet
+unsigned reverse(unsigned number);//dreht Zahl um
+bool OnlyOddDigits(unsigned number);
+bool IsReversible(unsigned number); //siehe roblem 145
 
 
 #endif /* MISC_H_ */
