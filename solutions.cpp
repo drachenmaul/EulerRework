@@ -64,7 +64,14 @@ void euler3(){
 
 
 
+void euler7(){
+	//What is the 10 001st prime number?
+	//Slower than original, but for larger primes it should be faster
+	std::vector<unsigned> primes;
+	initprimelist(105000,primes);
 
+	std::cout << primes[10000] << std::endl;
+}
 
 
 
