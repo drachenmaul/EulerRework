@@ -197,9 +197,59 @@ bool IsPandigital(unsigned number){
 
 
 	return true;
+}
+
+
+
+
+
+
+bool SameDigits(unsigned n1, unsigned n2){
+	unsigned lang1, lang2;
+	lang1=GetLength(n1);
+	lang2=GetLength(n2);
+	if(lang1!=lang2)
+		return false;
+	unsigned digits1[10]={0};
+	unsigned digits2[10]={0};
+
+	for(unsigned i=0 ; i<lang1 ; i++){
+		digits1[n1%10]++;
+		n1/=10;
+	}
+
+
+	for(unsigned i=0 ; i<lang1 ; i++){
+			digits2[n2%10]++;
+			n2/=10;
+		}
+
+	for(unsigned i=0 ; i<10 ; i++){
+		if(digits1[i]!=digits2[i])
+			return false;
+	}
+
+	return true;
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

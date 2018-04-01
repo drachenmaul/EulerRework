@@ -256,7 +256,23 @@ void euler47(){
 
 
 
+void euler52(){
+	//Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.
+	//Reduced refs by ~120Million
+	unsigned number;
 
+	for(number=1;1;number++){
+		if(SameDigits(number,2*number))
+			if(SameDigits(number,3*number))
+				if(SameDigits(number,4*number))
+					if(SameDigits(number,5*number))
+						if(SameDigits(number,6*number))
+							break;
+	}
+	std::cout << number << std::endl;
+
+
+}
 
 
 
