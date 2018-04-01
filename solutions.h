@@ -48,6 +48,17 @@ void euler47();
 
 void euler52();
 
+
+
+
+
+
+void euler87();
+
+
+
+
+
 void euler145();
 
 

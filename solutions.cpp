@@ -276,7 +276,37 @@ void euler52(){
 
 
 
+void euler87(){
+	//How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?
+	//Performance doubled if primelist not present, else roughly equal
+	unsigned i, j, k;
+	std::vector<bool> numbers(50000000, false);
+	std::vector<unsigned> prime;
+	initprimelist(7072,prime);
+	long long num;
+	for(i=0;i<prime.size();i++){
+		num=0;
+		for(j=0;j<prime.size();j++){
+			for(k=0;k<prime.size();k++){
+				num=(long long)prime[i]*prime[i];
+				num+=(long long)prime[j]*prime[j]*prime[j];
+				num+=(long long)prime[k]*prime[k]*prime[k]*prime[k];
+				if(num<50000000)
+					numbers[num]=true;
+				else break;
+			}
+		}
+	}
 
+	for(i=0,num=0;i<50000000;i++)
+		if(numbers[i]==true){
+			num++;
+		}
+
+
+	std::cout << num << std::endl;
+
+}
 
 void euler145(){
 	/*
