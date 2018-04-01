@@ -239,7 +239,17 @@ bool SameDigits(unsigned n1, unsigned n2){
 
 
 
+unsigned QuadratSumme(unsigned number){
+	unsigned summe=0;
+	unsigned tmp;
+	while(number>0){
+		tmp=number%10;
+		summe+= tmp*tmp;
+		number/=10;
+	}
+	return summe;
 
+}
 
 
 

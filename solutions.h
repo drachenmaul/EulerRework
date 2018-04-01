@@ -58,6 +58,7 @@ void euler87();
 
 
 
+void euler92();
 
 void euler145();
 

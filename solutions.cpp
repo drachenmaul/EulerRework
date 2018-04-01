@@ -308,6 +308,81 @@ void euler87(){
 
 }
 
+
+
+void euler92(){
+
+/*
+
+A number chain is created by continuously adding the square of the digits in a number to form a new number until it has been seen before.
+
+For example,
+
+44 → 32 → 13 → 10 → 1 → 1
+85 → 89 → 145 → 42 → 20 → 4 → 16 → 37 → 58 → 89
+
+Therefore any chain that arrives at 1 or 89 will become stuck in an endless loop. What is most amazing is that EVERY starting number will eventually arrive at 1 or 89.
+
+How many starting numbers below ten million will arrive at 89?
+ */
+
+	//Reduced callgrindscore by 9.5 Million, execution time reduced by factor of 2.5
+	unsigned i,anzahl,qsumme;
+	std::vector<unsigned> starter(1e7,0);
+	std::vector<unsigned> buffer;
+
+
+
+	for(i=1,anzahl=0;i<1e7;i++){
+		if(starter[i]==89){
+			anzahl++;
+			continue;
+		}else if(starter[i]==1){
+			continue;
+		}
+		qsumme=i;
+		buffer.clear();
+		while(qsumme != 1 && qsumme!=89){
+			buffer.push_back(qsumme);
+			qsumme=QuadratSumme(qsumme);
+			if(qsumme==89 || starter[qsumme]==89){
+				anzahl++;
+				for(unsigned j = 0 ; j < buffer.size() ; j++){
+					starter[buffer[j]]=89;
+				}
+				break;
+			}
+			else if(qsumme==1 || starter[qsumme]==1){
+				for(unsigned j = 0 ; j < buffer.size() ; j++){
+					starter[buffer[j]]=1;
+				}
+				break;
+			}
+		}
+	}
+	std::cout << anzahl << " Anfangszahlen unter 10000000 enden mit 89." << std::endl;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void euler145(){
 	/*
 
