@@ -11,13 +11,18 @@
 #include "primes.h"
 
 
-void initprimesieve(long long size, std::vector<bool> &liste){
+void initprimesieve(unsigned size, std::vector<bool> &liste){
 	liste.resize(size+1,true);
 	liste[0]=false;
 	liste[1]=false;
-	for(long long i=2;i*i<=size;i++){
-		if(liste[i]==true){
+	for(unsigned i=2;i<3;i++){
 			for(int j=2;j*i<=size;j++){
+				liste[i*j]=false;
+			}
+	}
+	for(unsigned i=3;i*i<=size;i+=2){
+		if(liste[i]==true){
+			for(int j=3;j*i<=size;j+=2){
 				liste[i*j]=false;
 			}
 		}
@@ -25,10 +30,10 @@ void initprimesieve(long long size, std::vector<bool> &liste){
 }
 
 
-void initprimelist(long long maxprime, std::vector<unsigned> &liste){
+void initprimelist(unsigned maxprime, std::vector<unsigned> &liste){
 	std::vector<bool> primes;
 	initprimesieve(maxprime,primes);
-	int i, j, n;
+	unsigned i, j, n;
 	for( i=0, n=0 ; i <= maxprime ; i++){
 		if(primes[i])
 			n++;

@@ -11,8 +11,8 @@
 
 #include <vector>
 
-void initprimesieve(long long size, std::vector<bool> &liste);
-void initprimelist(long long maxprime, std::vector<unsigned> &liste);
+void initprimesieve(unsigned size, std::vector<bool> &liste);
+void initprimelist(unsigned maxprime, std::vector<unsigned> &liste);
 unsigned primefactors(unsigned long long number, std::vector<unsigned> &factors, std::vector<unsigned> &primes);
 
 
