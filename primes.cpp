@@ -15,15 +15,15 @@ void initprimesieve(unsigned size, std::vector<bool> &liste){
 	liste.resize(size+1,true);
 	liste[0]=false;
 	liste[1]=false;
-	for(unsigned i=2;i<3;i++){
-			for(int j=2;j*i<=size;j++){
-				liste[i*j]=false;
-			}
+
+	for(unsigned j=4;j<=size;j+=2){
+		liste[j]=false;
+
 	}
 	for(unsigned i=3;i*i<=size;i+=2){
 		if(liste[i]==true){
-			for(int j=3;j*i<=size;j+=2){
-				liste[i*j]=false;
+			for(unsigned j=3*i;j<=size;j+=2*i){
+				liste[j]=false;
 			}
 		}
 	}
