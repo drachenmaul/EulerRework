@@ -62,6 +62,6 @@ void euler92();
 
 void euler145();
 
-
+void euler357();
 
 #endif /* SOLUTIONS_H_ */
