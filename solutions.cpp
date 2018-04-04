@@ -7,6 +7,7 @@
 
 
 #include <iostream>
+#include <cmath>
 #include "misc.h"
 #include "primes.h"
 
@@ -141,6 +142,61 @@ void euler10(){
 
 	std::cout << sum << std::endl;
 }
+
+
+
+void euler12(){
+	/*What is the value of the first triangle number to have over five hundred divisors?*/
+
+	//Explanation see euler12 overview
+
+	//Performance increased by factor 110
+
+	std::vector<unsigned> primes;
+	initprimelist(1000,primes);
+	unsigned size=primes.size();
+
+	unsigned n=3;
+	unsigned Dn=2; //divisors per prime
+	unsigned cnt=0;
+	unsigned n1, Dn1, i, exponent;
+
+	while( cnt <= 500){
+		n++;
+		n1=n;
+		if(n1%2==0){
+			n1/=2;
+		}
+		Dn1=1;
+		for(i=0 ; i<size; i++){
+			if(primes[i]*primes[i]>n1){
+				Dn1*=2;
+				break;
+			}
+			exponent=1;
+			while(n1%primes[i]==0){
+				exponent++;
+				n1/=primes[i];
+			}
+			if(exponent > 1)
+				Dn1*=exponent;
+			if(n1==1)
+				break;
+		}
+		cnt=Dn*Dn1;
+		Dn=Dn1;
+	}
+
+	std::cout << n*(n-1)/2 << std::endl;
+
+}
+
+
+
+
+
+
+
 
 
 
