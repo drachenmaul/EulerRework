@@ -61,6 +61,52 @@ void euler3(){
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+void euler5(){
+	/*What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?*/
+
+	/*Die Schleife testet für alle Zahlen ob sie durch die Zahlen 1-20 restlos teilbar sind, findet es die erste solche Zahl
+	 * bricht sie ab und das Ergebniss wird ausgegeben.*/
+
+
+	//Performance x17; reduced calls by 7.598.866.502
+
+
+
+	unsigned ziel=20;	//erste zahl die durch 20 teilbar ist
+	for(unsigned i = 11; i<21 ; i++){   //teste nur 11 aufwärts, da fälle 1-10 durch 11-20 abgedeckt werden
+		if(ziel%i!=0){
+			ziel+=20;	//wird immer um 20 erhöht damit teilbarkeit durch 20 gegeben ist
+			i=3;
+		}
+	}
+	std::cout << ziel << std::endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void euler6(){
 	//Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 	//Slightly less efficient than original but scales a lot better
