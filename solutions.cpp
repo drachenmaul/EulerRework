@@ -63,7 +63,27 @@ void euler3(){
 }
 
 
+void euler4(){
+	/*Find the largest palindrome made from the product of two 3-digit numbers.*/
+	//speed improvement factor 193
 
+	unsigned largestpal = 0;
+	unsigned a=999;
+	while(a>=100){
+		unsigned b=999;
+		while(b>=a){
+			if(a*b<=largestpal)
+				break;
+			if(IsPalindrom(a*b))
+				largestpal=a*b;
+			b--;
+		}
+		a--;
+	}
+	std::cout << largestpal << std::endl;
+
+
+}
 
 
 

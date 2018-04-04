@@ -256,7 +256,9 @@ unsigned QuadratSumme(unsigned number){
 
 
 
-
+bool IsPalindrom(unsigned number){
+	return (number==reverse(number));
+}
 
 
 
