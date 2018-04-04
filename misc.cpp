@@ -30,6 +30,8 @@ unsigned long long CountRoutes(unsigned n){
 
 
 unsigned SumOfDivisors(unsigned number){
+	if(number==0)
+		return 0;
 	unsigned sum=1;
 	unsigned p=2;
 	unsigned j;

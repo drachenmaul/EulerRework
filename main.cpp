@@ -10,9 +10,6 @@
 #include "solutions.h"
 
 
-#include <vector>
-#include "primes.h"
-
 
 int main(){
 	double start, stop;
@@ -20,7 +17,7 @@ int main(){
 
 
 
-	euler357();
+	euler23();
 
 
 	stop=clock();

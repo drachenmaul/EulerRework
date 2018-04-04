@@ -14,6 +14,7 @@
 void initprimesieve(unsigned size, std::vector<bool> &liste);
 void initprimelist(unsigned maxprime, std::vector<unsigned> &liste);
 unsigned primefactors(unsigned long long number, std::vector<unsigned> &factors, std::vector<unsigned> &primes);
+bool IsPrime(unsigned number);
 
 
 
