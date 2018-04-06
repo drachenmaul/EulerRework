@@ -416,7 +416,35 @@ void euler47(){
 }
 
 
+void euler50(){
+	//Which prime, below one-million, can be written as the sum of the most consecutive primes?
 
+	std::vector<unsigned> prime;
+	initprimelist(500000,prime);
+
+	unsigned i,j;
+	unsigned current, highest, length, size;
+
+	size = prime.size();
+
+	for( i = 0, highest = 0, length = 0; i < size ; i++){
+		current = 0;
+		for( j = i ; j<size ; j++){
+			current+=prime[j];
+			if(current >= 1e6)
+				break;
+			if(IsPrime(current)){
+				if(current > highest && (int)(j-i+1)>(int)length){
+					length=j-i;
+					highest=current;
+				}
+			}
+		}
+	}
+	std::cout << "Primzahl: " << highest << std::endl;
+	std::cout << "Kettenglieder: " << length << std::endl;
+
+}
 
 void euler52(){
 	//Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.
@@ -490,7 +518,58 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 
 
 
+void euler75(){
+	/*
 
+It turns out that 12 cm is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
+
+12 cm: (3,4,5)
+24 cm: (6,8,10)
+30 cm: (5,12,13)
+36 cm: (9,12,15)
+40 cm: (8,15,17)
+48 cm: (12,16,20)
+
+In contrast, some lengths of wire, like 20 cm, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using 120 cm it is possible to form exactly three different integer sided right angle triangles.
+
+120 cm: (30,40,50), (20,48,52), (24,45,51)
+
+Given that L is the length of the wire, for how many values of L ≤ 1,500,000 can exactly one integer sided right angle triangle be formed?
+	 */
+
+	std::vector <int> zahlen(1500001,0);
+	std::vector<long long> square(1500001);
+	for( long long i = 0; i<=1500000;i++)
+		square[i]=i*i;
+
+	int a,b,i,res;
+	int limit=1500000;
+	for(a=1;a<limit;a++){
+		for(b=a;b<limit-a-1;b++){
+			long long tmp = square[a]+square[b];
+			for(i=sqrt(tmp);i<limit-a-b;i++){
+				if(tmp==square[i]){
+					zahlen[a+b+i]++;
+					break;
+				}
+				else if(tmp<square[i])
+					break;
+			}
+
+		}
+	}
+
+	for(res=0,i=0;i<1500001;i++)
+		if(zahlen[i]==1){
+			res++;
+		}
+
+	//TODO: THIS ONE TAKE AN HOUR+
+	std::cout << res << std::endl;
+
+
+
+}
 
 
 
@@ -507,10 +586,11 @@ void euler87(){
 	std::vector<unsigned> prime;
 	initprimelist(7072,prime);
 	long long num;
-	for(i=0;i<prime.size();i++){
+	unsigned size=prime.size();
+	for(i=0;i<size;i++){
 		num=0;
-		for(j=0;j<prime.size();j++){
-			for(k=0;k<prime.size();k++){
+		for(j=0;j<size;j++){
+			for(k=0;k<size;k++){
 				num=(long long)prime[i]*prime[i];
 				num+=(long long)prime[j]*prime[j]*prime[j];
 				num+=(long long)prime[k]*prime[k]*prime[k]*prime[k];
