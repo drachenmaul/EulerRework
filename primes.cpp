@@ -33,15 +33,10 @@ void initprimesieve(unsigned size, std::vector<bool> &liste){
 void initprimelist(unsigned maxprime, std::vector<unsigned> &liste){
 	std::vector<bool> primes;
 	initprimesieve(maxprime,primes);
-	unsigned i, j, n;
-	for( i=0, n=0 ; i <= maxprime ; i++){
+	unsigned i;
+	for( i=0 ; i <= maxprime ; i++){
 		if(primes[i])
-			n++;
-	}
-	liste.resize(n);
-	for( i=0, j=0 ; i<=maxprime ; i++){
-		if(primes[i])
-			liste[j++]=i;
+			liste.push_back(i);
 	}
 }
 
@@ -81,11 +76,12 @@ unsigned primefactors(unsigned long long number, std::vector<unsigned> &factors,
 
 
 bool IsPrime(unsigned number){
-	if(number<2 || number%2==0)
+	if(number<2)
 		return false;
 	if(number==2)
 		return true;
-
+	if(number%2==0)
+		return false;
 	for(unsigned n=3 ; n*n<=number ; n+=2){
 		if(number%n==0)
 			return false;
