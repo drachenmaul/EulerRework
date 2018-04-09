@@ -75,14 +75,14 @@ unsigned primefactors(unsigned long long number, std::vector<unsigned> &factors,
 
 
 
-bool IsPrime(unsigned number){
+bool IsPrime(int number){
 	if(number<2)
 		return false;
 	if(number==2)
 		return true;
 	if(number%2==0)
 		return false;
-	for(unsigned n=3 ; n*n<=number ; n+=2){
+	for(int n=3 ; n*n<=number ; n+=2){
 		if(number%n==0)
 			return false;
 	}
