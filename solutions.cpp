@@ -390,7 +390,38 @@ void euler41(){
 
 
 
+void euler27(){
+	/* n*n + an + b, where |a| < 1000 and |b| < 1000
+	 *  Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
+	 */
+	std::vector<unsigned> primes;
+	initprimelist(1000,primes);
+	int size = primes.size();
+	int a,b;
+	int maxa,maxb;
+	int primecount,maxprimecount;
+	int n,i;
 
+
+	for(maxprimecount=0,maxa=0,maxb=0,a=-999;a<1000;a++){
+		//b must be positive and prime for n=0 to be prime
+		for( i = 0 , b = primes[i] ; i<size ; i++ , b = primes[i] ){
+			for(n=0,primecount=0;n==primecount;n++){
+				if(IsPrime(n*n+a*n+b))
+					primecount++;
+			}
+			if(primecount>maxprimecount){
+				maxprimecount=primecount;
+				maxa=a;
+				maxb=b;
+			}
+		}
+	}
+	std::cout << "Produkt von " << maxa << " und " << maxb << " für maximale Primzahlen ist " << maxa*maxb << std::endl;
+	std::cout << "Es enstehen " << maxprimecount << " Primzahlen!" << std::endl;
+
+
+}
 
 
 
@@ -418,7 +449,7 @@ void euler47(){
 
 void euler50(){
 	//Which prime, below one-million, can be written as the sum of the most consecutive primes?
-
+	//Twice as fast as original,
 	std::vector<unsigned> prime;
 	initprimelist(500000,prime);
 
