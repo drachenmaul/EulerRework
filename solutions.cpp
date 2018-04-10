@@ -366,30 +366,6 @@ void euler23(){
 
 
 
-
-void euler41(){
-	//What is the largest n-digit pandigital prime that exists?
-	// Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wäre (Summe 1-8/9/10 ist durch 3 teilbar)
-
-	//Speed up by factor 5, improved callgrindscore by 15.000.000.000
-	std::vector<unsigned> primes;
-	initprimelist(1e7,primes);
-
-	unsigned gpand;
-	unsigned i;
-
-
-	for(i=0, gpand=0 ; i<primes.size() ; i++){
-		if(IsPandigital(primes[i])==1)
-			if(primes[i]>gpand)
-				gpand=primes[i];
-	}
-
-	std::cout << gpand << std::endl;
-}
-
-
-
 void euler27(){
 	/* n*n + an + b, where |a| < 1000 and |b| < 1000
 	 *  Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
@@ -457,10 +433,69 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 
 
+void euler30(){
+	/*Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
+
+    1634 = 1^4 + 6^4 + 3^4 + 4^4
+    8208 = 8^4 + 2^4 + 0^4 + 8^4
+    9474 = 9^4 + 4^4 + 7^4 + 4^4
+
+As 1 = 1^4 is not a sum it is not included.
+
+The sum of these numbers is 1634 + 8208 + 9474 = 19316.
+
+Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
+	 * */
+
+	/*Wichtigster Schritt: Erkennen, dass das maximum bei Faktor*9^5 liegt, Faktor
+	 * ausrechnen und somit den maximalwert bestimmen*/
+	int max=354295;
+	int current;
+	int sum;
+	int i;
+	int value;
+
+
+	for(i=10,sum=0;i<max;i++){
+		current=0;
+		value=i;
+		while(value>0){
+			current+=pow(value%10,5);
+			value/=10;
+		}
+		if(current==i)
+			sum+=i;
 
 
 
+	}
 
+	std::cout << sum << std::endl;
+
+
+}
+
+
+void euler41(){
+	//What is the largest n-digit pandigital prime that exists?
+	// Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wäre (Summe 1-8/9/10 ist durch 3 teilbar)
+
+	//Speed up by factor 5, improved callgrindscore by 15.000.000.000
+	std::vector<unsigned> primes;
+	initprimelist(1e7,primes);
+
+	unsigned gpand;
+	unsigned i;
+
+
+	for(i=0, gpand=0 ; i<primes.size() ; i++){
+		if(IsPandigital(primes[i])==1)
+			if(primes[i]>gpand)
+				gpand=primes[i];
+	}
+
+	std::cout << gpand << std::endl;
+}
 
 
 

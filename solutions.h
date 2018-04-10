@@ -8,7 +8,7 @@
 #ifndef SOLUTIONS_H_
 #define SOLUTIONS_H_
 
-//Reworked 24/54
+//Reworked 26/54
 
 void euler1();
 void euler2();
@@ -36,6 +36,9 @@ void euler23();
 
 void euler27();
 void euler28();
+
+void euler30();
+
 
 void euler41();
 
