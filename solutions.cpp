@@ -394,6 +394,7 @@ void euler27(){
 	/* n*n + an + b, where |a| < 1000 and |b| < 1000
 	 *  Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
 	 */
+	//Speed up x4
 	std::vector<unsigned> primes;
 	initprimelist(1000,primes);
 	int size = primes.size();
@@ -419,9 +420,48 @@ void euler27(){
 	}
 	std::cout << "Produkt von " << maxa << " und " << maxb << " für maximale Primzahlen ist " << maxa*maxb << std::endl;
 	std::cout << "Es enstehen " << maxprimecount << " Primzahlen!" << std::endl;
+}
+
+
+void euler28(){
+	/*Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
+
+21 22 23 24 25
+20  7  8  9 10
+19  6  1  2 11
+18  5  4  3 12
+17 16 15 14 13
+
+It can be verified that the sum of the numbers on the diagonals is 101.
+
+What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?*/
+	int i,j;
+
+	int sum;
+	int summand;
+
+	/*Per Hand hergeleitet, Grenze ergibt sich aus Gridgröße(ungerade)+1 geteilt durch 2*/
+	for(sum=1,summand=1,i=1;i<501;i++){
+		for(j=0;j<4;j++){
+			summand+=i*2;
+			sum+=summand;
+
+		}
+	}
+	std::cout << sum << std::endl;
 
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
