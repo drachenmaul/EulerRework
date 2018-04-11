@@ -522,6 +522,23 @@ void euler47(){
 }
 
 
+
+void euler48(){
+	//Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
+	//Performance improved by factor of 3000
+  unsigned long long sum = 0;
+  for (unsigned i = 1; i <= 1000; i++)
+    {
+      unsigned long long tmp = i;
+      for (unsigned j = 1; j < i; j++)
+        (tmp *= i) %= 10000000000;
+      sum += tmp;
+    }
+  std::cout << sum % 10000000000 << std::endl;
+}
+
+
+
 void euler50(){
 	//Which prime, below one-million, can be written as the sum of the most consecutive primes?
 	//Twice as fast as original,
