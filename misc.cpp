@@ -270,5 +270,30 @@ unsigned Faculty(unsigned number){
 
 
 
+bool IsBinaryPalindrom(unsigned number){
+	unsigned reversed=0;
+	unsigned tmp=number;
+	while(tmp>0){
+		reversed=2*reversed+(tmp%2);
+		tmp/=2;
+	}
+
+	return (number==reversed);
+}
+
+
+bool IsBasePalindrom(unsigned number, unsigned base){
+	unsigned reversed=0;
+	unsigned tmp=number;
+	while(tmp>0){
+		reversed=base*reversed+(tmp%base);
+		tmp/=base;
+	}
+
+	return (number==reversed);
+}
+
+
+
 
 
