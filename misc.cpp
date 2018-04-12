@@ -261,7 +261,12 @@ bool IsPalindrom(unsigned number){
 }
 
 
-
+unsigned Faculty(unsigned number){
+	unsigned fac=1;
+	for(unsigned i=2 ; i <= number; i++)
+		fac*=i;
+	return fac;
+}
 
 
 

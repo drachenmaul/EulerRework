@@ -25,6 +25,7 @@ bool IsPandigital(unsigned number);
 bool SameDigits(unsigned n1, unsigned n2);
 unsigned QuadratSumme(unsigned number); //Summe der Quadrate der Ziffern der Zahl
 bool IsPalindrom(unsigned number);
+unsigned Faculty(unsigned number);
 
 
 #endif /* MISC_H_ */
