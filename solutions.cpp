@@ -868,7 +868,20 @@ How many starting numbers below ten million will arrive at 89?
 
 
 
+void euler97(){
+	//Find the last ten digits of the prime 28433*2^7830457+1
 
+	long long unsigned a,b;
+	a=1;
+	for(b=0;b<7830457;b++)
+	{
+		a%=10000000000;
+		a*=2;
+	}
+	b=28433*a+1;
+	b%=10000000000;
+	std::cout << b << std::endl;
+}
 
 
 

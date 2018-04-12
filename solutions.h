@@ -73,6 +73,11 @@ void euler87();
 
 void euler92();
 
+
+
+
+void euler97();
+
 void euler145();
 
 void euler357();
