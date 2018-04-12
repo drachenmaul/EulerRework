@@ -147,6 +147,35 @@ void euler7(){
 }
 
 
+void euler9(){
+	/*A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+a2 + b2 = c2
+
+For example, 32 + 42 = 9 + 16 = 25 = 52.
+
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.*/
+
+	//Performance x5
+
+	int a,b,c;
+
+
+	for(a=1;a<1000;a++){
+		for(b=a;b<1000;b++){
+			c=1000-a-b;
+				if(a*a+b*b==c*c){
+					std::cout << a*b*c << std::endl;
+					return;
+				}
+			}
+		}
+
+}
+
+
+
+
 void euler10(){
 	//Find the sum of all the primes below two million.
 	//Improved score by 1.278.750.506, 2x faster than original
