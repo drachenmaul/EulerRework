@@ -539,7 +539,25 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
 
 
+void euler36(){
+	/*Find the sum of all numbers, less than one million,
+	 *  which are palindromic in base 10 and base 2.*/
+	//Speed up x10
 
+	int sum;
+	unsigned i;
+
+	for(i=1,sum=0;i<1000000;i+=2){
+		if(IsPalindrom(i)){
+			if(IsBinaryPalindrom(i)){
+				sum+=i;
+			}
+		}
+	}
+	std::cout << sum << std::endl;
+
+
+}
 
 
 
