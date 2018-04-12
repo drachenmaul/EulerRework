@@ -505,6 +505,40 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 }
 
 
+void euler34(){
+	/*145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
+
+Find the sum of all numbers which are equal to the sum of the factorial of their digits.
+
+Note: as 1! = 1 and 2! = 2 are not sums they are not included.
+	 * */
+	//performance x3.5
+
+	int max=2600000; //7x9! is around 2.5mil which is much less than 9.999.999
+	int i;
+	int sum;
+	int facsum;
+
+
+	for(i=10,sum=0;i<max;i++){
+		unsigned tmp=i;
+		facsum=0;
+		while(tmp>0){
+			facsum+=Faculty(tmp%10);
+			tmp/=10;
+		}
+		if(facsum==i)
+			sum+=facsum;
+	}
+	std::cout << sum << std::endl;
+}
+
+
+
+
+
+
+
 void euler41(){
 	//What is the largest n-digit pandigital prime that exists?
 	// Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wäre (Summe 1-8/9/10 ist durch 3 teilbar)
