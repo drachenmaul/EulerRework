@@ -512,19 +512,23 @@ Find the sum of all numbers which are equal to the sum of the factorial of their
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 	 * */
-	//performance x3.5
+	//performance x8.5
 
 	int max=2600000; //7x9! is around 2.5mil which is much less than 9.999.999
 	int i;
 	int sum;
 	int facsum;
+	unsigned fac[10];
+
+	for( i = 0 ; i < 10 ; i++)
+		fac[i]=Faculty(i);
 
 
 	for(i=10,sum=0;i<max;i++){
 		unsigned tmp=i;
 		facsum=0;
 		while(tmp>0){
-			facsum+=Faculty(tmp%10);
+			facsum+=fac[tmp%10];
 			tmp/=10;
 		}
 		if(facsum==i)
