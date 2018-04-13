@@ -28,6 +28,7 @@ bool IsPalindrom(unsigned number);
 unsigned Faculty(unsigned number);
 bool IsBinaryPalindrom(unsigned number);
 bool IsBasePalindrom(unsigned number, unsigned base);
+bool IsBouncy(int number);
 
 
 #endif /* MISC_H_ */

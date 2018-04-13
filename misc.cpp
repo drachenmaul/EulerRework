@@ -293,6 +293,33 @@ bool IsBasePalindrom(unsigned number, unsigned base){
 	return (number==reversed);
 }
 
+bool IsBouncy(int number){
+	if(number<101)
+		return false;
+	bool ascending=false;
+	bool descending=false;
+	int curr, last;
+	curr=number%10;
+	while(number>9){ //Schleife checkt immer einen Eintrag weiter länge deshalb hören wir bei number>9 auf und nicht number>0
+		last=curr;
+		number/=10;
+		curr=number%10;
+		if(curr<last)
+			ascending=true;
+		if(curr>last)
+			descending=true;
+		if(ascending && descending)
+			return true;
+	}
+
+	return false;
+}
+
+
+
+
+
+
 
 
 
