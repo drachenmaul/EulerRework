@@ -8,7 +8,8 @@
 #ifndef SOLUTIONS_H_
 #define SOLUTIONS_H_
 
-//Reworked 32/54
+
+//Reworks todo: 8, 11, 13, 16, 18, 20, 25, 31, 37, 39, 42, 44, 45, 46, 53, 56, 67, 187, 206
 
 void euler1();
 void euler2();
@@ -42,7 +43,7 @@ void euler30();
 
 
 void euler34();
-
+void euler35();
 void euler36();
 
 void euler41();

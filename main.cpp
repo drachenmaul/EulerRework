@@ -17,7 +17,7 @@ int main(){
 
 
 
-	euler112();
+	euler35();
 
 
 	stop=clock();

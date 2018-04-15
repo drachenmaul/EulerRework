@@ -537,6 +537,54 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 	std::cout << sum << std::endl;
 }
 
+void euler35(){
+	//A prime is circular if all rotations of the digits are themselves prime.
+	//How many circular primes are there below one million?
+	//performance improvement: x20
+
+	std::vector<bool> prime;
+	std::vector<unsigned> plist;
+	initprimesieve(1e6,prime);
+	primelistfromsieve(prime, plist);
+
+	int circprimecount;
+	int circ;
+	int lang;
+	int i,j;
+	int check;
+
+
+	//Starte circprimecount bei 2, da 2 und 5 übersprungen werden
+	for( i=0, circprimecount=2 ; (unsigned)i<plist.size() ; i++){
+		circ=plist[i];
+		int tmp=circ;
+		while(tmp>0){
+			int digit=tmp%10;
+			if(digit%2 == 0 || digit == 5)
+				break;
+			tmp/=10;
+		}
+		if(tmp!=0)
+			continue;
+
+		lang=GetLength(circ);
+		for(j=0,check=0;j<lang;j++){
+			circ+=(circ%10)*pow(10,lang);
+			circ/=10;
+			if(circ==-1)
+				break;
+			if(prime[circ]){
+				check++;
+			}
+			if(check==lang){
+				circprimecount++;
+			}
+		}
+	}
+	std::cout << "Es gibt " << circprimecount << " circular primes unter 1000000!" << std::endl;
+
+
+}
 
 
 void euler36(){
