@@ -94,7 +94,14 @@ bool IsPrime(int number){
 
 
 
-
+void primelistfromsieve(std::vector<bool> sieve, std::vector<unsigned> &liste){
+	unsigned i;
+	unsigned size = sieve.size();
+	for( i=0 ; i < size ; i++){
+		if(sieve[i])
+			liste.push_back(i);
+	}
+}
 
 
 
