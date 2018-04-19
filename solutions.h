@@ -86,7 +86,7 @@ void euler112();
 
 
 void euler145();
-
+void euler187();
 void euler357();
 
 #endif /* SOLUTIONS_H_ */

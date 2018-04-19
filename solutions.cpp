@@ -1014,7 +1014,32 @@ How many reversible numbers are there below one-billion (10^9)?
 
 
 
+void euler187(){
+	//A composite is a number containing at least two prime factors.
+	//How many composite integers, n < 10^8, have precisely two, not necessarily distinct, prime factors?
 
+	//17427258
+	unsigned i,j;
+	unsigned limit=1e8;
+	int count;
+	std::vector<unsigned> plist;
+
+	initprimelist(limit/2,plist);
+
+
+	for( count=0 , i=0 ; i<plist.size() ; i++ ){
+		for( j=i ; j<plist.size() ; j++){
+			if((unsigned long long)plist[i]*plist[j]>=limit)
+				break;
+			count++;
+		}
+	}
+
+
+	std::cout << "Zahlen mit 2 Primfaktoren unter " << limit << " : " << count << std::endl;
+
+
+}
 
 
 void euler357(){
