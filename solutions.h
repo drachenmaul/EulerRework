@@ -34,6 +34,8 @@ void euler19();
 void euler21();
 
 void euler23();
+void euler24();
+
 
 void euler27();
 void euler28();

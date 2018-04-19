@@ -391,7 +391,21 @@ void euler23(){
 	std::cout << sum << std::endl;
 }
 
+void euler24(){
+	//What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 
+
+	long long zahl=0;
+	int ziffern[10]={0,1,2,3,4,5,6,7,8,9};
+	for(unsigned i=1 ; i<1e6 ; i++){
+		std::next_permutation(ziffern,ziffern+10);
+	}
+
+	for(unsigned i=0 ; i<10 ; i++)
+		zahl+=(long long)ziffern[9-i]*pow(10,i);
+
+	std::cout << zahl << std::endl;
+}
 
 
 
