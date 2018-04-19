@@ -90,6 +90,23 @@ bool IsPrime(int number){
 }
 
 
+unsigned NextPrime(int number){
+	if(number<2)		//Alles kleiner als 2 gibt 2 zurück
+		return 2;
+	number++;			//Wir wollen nicht number selbst zurück geben
+	if(number%2==0)    //Stelle sicher dass Nummer ungerade ist
+		number++;
+	int n=3;
+	while(n*n<=number){
+		if(number%n==0){
+			number+=2;
+			n=3;
+		}
+		else
+			n+=2;
+	}
+	return number;
+}
 
 
 
