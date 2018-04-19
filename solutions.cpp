@@ -635,6 +635,33 @@ void euler41(){
 
 
 
+void euler46(){
+	//What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
+	//perf x1.5
+	int test,prime,snumber,possible;
+	for(possible=1,test=9;possible;test+=2){
+		if(!IsPrime(test)){
+			for(possible=0,prime=2;prime<test;prime=NextPrime(prime)){
+				for(snumber=1;prime+2*snumber*snumber<=test;snumber++){
+					if(prime+2*snumber*snumber==test)
+						possible=1;
+				}
+			}
+		}
+	}
+
+	std::cout << "Erster Fehlschlag bei " << test-2 << std::endl; //test-2 da letzte inkrementierung der for schleife rückgängig gemacht werden muss
+}
+
+
+
+
+
+
+
+
+
+
 void euler47(){
 //Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
 //perfx27
