@@ -10,7 +10,7 @@
 #include <cmath>
 #include "primes.h"
 
-//TODO: Vector ist scheißn ineffizient für prime sieve... replace mit standard arrays
+
 void initprimesieve(unsigned size, std::vector<bool> &liste){
 	liste.resize(size+1,true);
 	liste[0]=false;

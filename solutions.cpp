@@ -17,7 +17,7 @@
 
 void euler1(){
 	//TASK: Find the sum of all the multiples of 3 or 5 below 1000.
-	//"Callgrindscore" improved by 46263
+	//basicly same speed
 
 	unsigned limit=1000;
 
@@ -29,7 +29,7 @@ void euler2(){
 	/*By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 	 find the sum of the even-valued terms.*/
 	//Sequence starts with 1,2! Not 1,1
-	//"Callgrindscore" improved by 13726
+	//basicly same speed
 
 
 	unsigned limit=4000000;
@@ -50,8 +50,7 @@ void euler2(){
 
 void euler3(){
 	//What is the largest prime factor of the number 600851475143 ?
-	//Worse by 426.836.935, however primefactors function very sophisticated
-	//See improvement of problem 47
+	//twice as fast
 
 	unsigned long long number=600851475143;
 	std::vector<unsigned> factors, primes;
@@ -65,7 +64,7 @@ void euler3(){
 
 void euler4(){
 	/*Find the largest palindrome made from the product of two 3-digit numbers.*/
-	//speed improvement factor 193
+	//speed improvement factor 142
 
 	unsigned largestpal = 0;
 	unsigned a=999;
@@ -100,7 +99,7 @@ void euler5(){
 	 * bricht sie ab und das Ergebniss wird ausgegeben.*/
 
 
-	//Performance x17; reduced calls by 7.598.866.502
+	//Performance x19
 
 
 
@@ -130,7 +129,7 @@ void euler5(){
 
 void euler6(){
 	//Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
-	//Slightly less efficient than original but scales a lot better
+	//basicly no difference
 	unsigned limit=100;
 
 	std::cout << SumOfNumbers(limit)*SumOfNumbers(limit)-SumOfSquares(limit) << std::endl;
@@ -178,7 +177,7 @@ Find the product abc.*/
 
 void euler10(){
 	//Find the sum of all the primes below two million.
-	//Improved score by 1.278.750.506, 2x faster than original
+	//perf x37
 	std::vector<unsigned> primes;
 	unsigned limit = 2e6;
 	initprimelist(limit,primes);
@@ -199,7 +198,7 @@ void euler12(){
 
 	//Explanation see euler12 overview
 
-	//Performance increased by factor 110
+	//Performance increased by factor 175
 
 	std::vector<unsigned> primes;
 	initprimelist(1000,primes);
@@ -264,7 +263,7 @@ Which starting number, under one million, produces the longest chain?
 	 * */
 
 
-	//Improved by 1.305.853.335
+	//perf x2
 
 	unsigned chainmax, chainl, chainlmax, n, i;
 
@@ -289,7 +288,7 @@ Which starting number, under one million, produces the longest chain?
 void euler15(){
 	//How many routes(top left -> bottom right) are there through a 20×20 grid moving only right and down?
 	//Lässt sich über Binomialkoeff lösen
-	//Callgrind improvement of 57244
+	//basicly same speed
 
 	unsigned n=20;
 	std::cout << CountRoutes(n) << std::endl;
@@ -334,7 +333,7 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 	 */
 
-	//Improvement of 654864845
+	//perf x79
 	unsigned sum=0;
 	for(unsigned a = 2 ; a<10000 ; a++){
 		unsigned b = SumOfProperDivisors(a);
@@ -360,7 +359,7 @@ void euler23(){
 
 
 
-	//Performance increased x4, reduced calls by 6.108.994.945
+	//perf x40
 	unsigned i,j;
 	std::vector<unsigned> abundantnbrs; //all abundant numbers go here
 	std::vector<bool> numbers(28124,false);//here I check if numbers can be written as sum of abundant nmbrs
@@ -399,7 +398,7 @@ void euler27(){
 	/* n*n + an + b, where |a| < 1000 and |b| < 1000
 	 *  Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
 	 */
-	//Speed up x4
+	//Speed up x3
 	std::vector<unsigned> primes;
 	initprimelist(1000,primes);
 	int size = primes.size();
@@ -440,6 +439,7 @@ void euler28(){
 It can be verified that the sum of the numbers on the diagonals is 101.
 
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?*/
+	//same perf
 	int i,j;
 
 	int sum;
@@ -475,6 +475,8 @@ The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 
 Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 	 * */
+
+	//same perf
 
 	/*Wichtigster Schritt: Erkennen, dass das maximum bei Faktor*9^5 liegt, Faktor
 	 * ausrechnen und somit den maximalwert bestimmen*/
@@ -512,7 +514,7 @@ Find the sum of all numbers which are equal to the sum of the factorial of their
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 	 * */
-	//performance x8.5
+	//performance x11
 
 	int max=2600000; //7x9! is around 2.5mil which is much less than 9.999.999
 	int i;
@@ -540,7 +542,7 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 void euler35(){
 	//A prime is circular if all rotations of the digits are themselves prime.
 	//How many circular primes are there below one million?
-	//performance improvement: x20
+	//performance improvement: x200
 
 	std::vector<bool> prime;
 	std::vector<unsigned> plist;
@@ -590,7 +592,7 @@ void euler35(){
 void euler36(){
 	/*Find the sum of all numbers, less than one million,
 	 *  which are palindromic in base 10 and base 2.*/
-	//Speed up x10
+	//Speed up x15
 
 	int sum;
 	unsigned i;
@@ -613,7 +615,7 @@ void euler41(){
 	//What is the largest n-digit pandigital prime that exists?
 	// Wichtig ist es zu erkennen, dass es keine 8,9 und 10 stelligen pandigitalen Primzahlen geben kann, da diese immer durch 3 Teilbar wäre (Summe 1-8/9/10 ist durch 3 teilbar)
 
-	//Speed up by factor 5, improved callgrindscore by 15.000.000.000
+	//Speed up by factor 45, improved callgrindscore by 15.000.000.000
 	std::vector<unsigned> primes;
 	initprimelist(1e7,primes);
 
@@ -622,7 +624,7 @@ void euler41(){
 
 
 	for(i=0, gpand=0 ; i<primes.size() ; i++){
-		if(IsPandigital(primes[i])==1)
+		if(IsPandigital(primes[i]))
 			if(primes[i]>gpand)
 				gpand=primes[i];
 	}
@@ -635,7 +637,7 @@ void euler41(){
 
 void euler47(){
 //Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
-//Improvement of 7.811.492.937, that's a factor 17 on runtime
+//perfx27
 
 
 	std::vector<unsigned> primes;
@@ -658,7 +660,7 @@ void euler47(){
 
 void euler48(){
 	//Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
-	//Performance improved by factor of 3000
+	//Performance improved by factor of 1351
   unsigned long long sum = 0;
   for (unsigned i = 1; i <= 1000; i++)
     {
@@ -674,7 +676,7 @@ void euler48(){
 
 void euler50(){
 	//Which prime, below one-million, can be written as the sum of the most consecutive primes?
-	//Twice as fast as original,
+	//perf x2.6
 	std::vector<unsigned> prime;
 	initprimelist(500000,prime);
 
@@ -704,7 +706,7 @@ void euler50(){
 
 void euler52(){
 	//Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.
-	//Reduced refs by ~120Million
+	//perf x3
 	unsigned number;
 
 	for(number=1;1;number++){
@@ -740,7 +742,7 @@ It is interesting to note that the odd squares lie along the bottom right diagon
 
 If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed. If this process is continued, what is the side length of the square spiral for which the ratio of primes along both diagonals first falls below 10%?
 	 */
-	//Performance verdoppelt dank neuer IsPrime Funktion, reduced calls by ~50% um 465.871.876
+	//perf x2
 
 	int i, layer, primes, total;
 	int ecken[4];
@@ -885,7 +887,7 @@ Therefore any chain that arrives at 1 or 89 will become stuck in an endless loop
 How many starting numbers below ten million will arrive at 89?
  */
 
-	//Reduced callgrindscore by 9.5 Million, execution time reduced by factor of 2.5
+	//perf x4
 	unsigned i,anzahl,qsumme;
 	std::vector<unsigned> starter(1e7,0);
 	std::vector<unsigned> buffer;
@@ -936,7 +938,7 @@ How many starting numbers below ten million will arrive at 89?
 
 void euler97(){
 	//Find the last ten digits of the prime 28433*2^7830457+1
-
+	//same perf
 	long long unsigned a,b;
 	a=1;
 	for(b=0;b<7830457;b++)
@@ -995,6 +997,7 @@ There are 120 reversible numbers below one-thousand.
 How many reversible numbers are there below one-billion (10^9)?
 
 	*/
+	//perf x13
 	//TODO: mehr optimierung als nur 90% der zahlen auslassen
 
 	unsigned i;
@@ -1018,7 +1021,7 @@ void euler187(){
 	//A composite is a number containing at least two prime factors.
 	//How many composite integers, n < 10^8, have precisely two, not necessarily distinct, prime factors?
 
-	//17427258
+	//perf x2
 	unsigned i,j;
 	unsigned limit=1e8;
 	int count;
@@ -1050,7 +1053,7 @@ void euler357(){
 	Find the sum of all positive integers n not exceeding 100 000 000
 	such that for every divisor d of n, d+n/d is prime.
 */
-	//Runtime reduced by a third, reduced Ref calls by 15 Million
+	//perf x 1.1
 	unsigned long long summe, grenze;
 	std::vector<bool> sieve;
 	grenze=100000000;
