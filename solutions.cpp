@@ -699,6 +699,36 @@ void euler48(){
   std::cout << sum % 10000000000 << std::endl;
 }
 
+void euler49(){
+	//The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330, is unusual in two ways: (i) each of the three terms are prime, and, (ii) each of the 4-digit numbers are permutations of one another.
+	//There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, exhibiting this property, but there is one other 4-digit increasing sequence.
+	//What 12-digit number do you form by concatenating the three terms in this sequence?
+	unsigned limit=1e4;				//Bis wo gucken
+	std::vector<bool> ptest;		//primtester bis 10000
+	initprimesieve(limit,ptest);
+	std::vector<unsigned> primes;	//primliste bis 10000
+	primelistfromsieve(ptest,primes);
+	unsigned number=0;
+	unsigned increase;
+	unsigned i; 					//Zähler für primzahlen
+	unsigned add1, add2;			//variablen für prim+increase und +2*increase
+	for( i=0, number=primes[i] ; number<1000 ; i++, number=primes[i]); 		//finde erste 4 stellige primzahl
+
+	for( ; i<primes.size()-1 ; number=primes[++i]){ 	//outer loop, increase prime whenever we reach end
+		for(increase=2 , add1=number+increase , add2=add1+increase ; add2<limit ; increase+=2 , add1=number+increase , add2=add1+increase){		//increase immer gerade da prime+ungerade!=prime
+			if( ptest[add1] && ptest[add2] ){
+				if(SameDigits(number,add1) && SameDigits(number, add2)){
+				std::cout << number << " mit increase: " << increase << std::endl;
+				std::cout << number << add1 << add2 << std::endl;
+				}
+			}
+		}
+	}
+}
+
+
+
+
 
 
 void euler50(){
