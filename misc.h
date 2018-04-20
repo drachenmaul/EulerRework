@@ -21,7 +21,8 @@ bool CanReverse(unsigned number); //checkt ob zahl in 0 endet
 unsigned reverse(unsigned number);//dreht Zahl um
 bool OnlyOddDigits(unsigned number);
 bool IsReversible(unsigned number); //siehe roblem 145
-bool IsPandigital(unsigned number);
+bool IsPandigital(unsigned number);//1-n Pandigital
+bool IsPandigital0n(unsigned number);//0-n Pandigital
 bool SameDigits(unsigned n1, unsigned n2);
 unsigned QuadratSumme(unsigned number); //Summe der Quadrate der Ziffern der Zahl
 bool IsPalindrom(unsigned number);

@@ -182,7 +182,7 @@ bool IsReversible(unsigned number){
 }
 
 
-bool IsPandigital(unsigned number){
+bool IsPandigital0n(unsigned number){
 	unsigned lang;
 	unsigned bins[10]={0};
 	for(lang=0 ; number>0 ; lang++){
@@ -199,7 +199,24 @@ bool IsPandigital(unsigned number){
 }
 
 
+bool IsPandigital(unsigned number){
+	unsigned lang;
+	lang=GetLength(number);
+	if(lang>9)
+		return false;
+	unsigned bins[10]={0};
+	for(unsigned i=0 ; i<lang ; i++){
+		bins[number%10]++;
+		number/=10;
+	}
+	for(unsigned i=1 ; i<=lang ; i++){
+		if(bins[i] != 1)
+			return false;
+	}
 
+
+	return true;
+}
 
 
 
