@@ -408,6 +408,20 @@ void euler24(){
 }
 
 
+void euler25(){
+	//What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+	//Explanation: https://projecteuler.net/thread=25#1759
+
+	//perf x20
+
+	std::cout << round((999 * log(10) + log(5) / 2) / log((1+sqrt(5))/2)) << std::endl;
+
+
+}
+
+
+
+
 
 void euler27(){
 	/* n*n + an + b, where |a| < 1000 and |b| < 1000
@@ -814,21 +828,23 @@ void euler47(){
 void euler48(){
 	//Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
 	//Performance improved by factor of 1351
-  unsigned long long sum = 0;
-  for (unsigned i = 1; i <= 1000; i++)
-    {
-      unsigned long long tmp = i;
+  unsigned long long tmp, sum = 0;
+  for (unsigned i = 1; i <= 1000; i++){
+      tmp = i;
       for (unsigned j = 1; j < i; j++)
-        (tmp *= i) %= 10000000000;
+        (tmp *= i) %= 10000000000;	//Softwaregore
       sum += tmp;
     }
   std::cout << sum % 10000000000 << std::endl;
 }
 
+
+
 void euler49(){
 	//The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330, is unusual in two ways: (i) each of the three terms are prime, and, (ii) each of the 4-digit numbers are permutations of one another.
 	//There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, exhibiting this property, but there is one other 4-digit increasing sequence.
 	//What 12-digit number do you form by concatenating the three terms in this sequence?
+
 	unsigned limit=1e4;				//Bis wo gucken
 	std::vector<bool> ptest;		//primtester bis 10000
 	initprimesieve(limit,ptest);
