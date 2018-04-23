@@ -624,6 +624,39 @@ void euler36(){
 
 }
 
+
+
+void euler37(){
+	/*
+	The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.
+
+	Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
+
+	NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
+	 */
+	int trunccount, i, sum;
+
+	for(i=11,trunccount=0,sum=0;trunccount<11;i++){
+		if(IsPrime(i))
+			if(Truncatable(i)){
+				sum+=i;
+				trunccount++;
+				//std::cout << "Got one: " << i << std::endl;
+			}
+	}
+
+	std::cout << "Sum of truncatable primes: " << sum << std::endl;
+
+
+
+
+}
+
+
+
+
+
+
 void euler39(){
 	/*
 	 * If p is the perimeter of a right angle triangle with integral length sides, {a,b,c}, there are exactly three solutions for p = 120.
@@ -631,12 +664,12 @@ void euler39(){
 	 * For which value of p ≤ 1000, is the number of solutions maximised?
 	 */
 
-	//perf x3
+	//perf x6
 
 	int a,b,p,max,curr,maxp;
 
 
-	for(max=0, maxp=0, p=1;p<=1000;p++){
+	for(max=0, maxp=0, p=2;p<=1000;p+=2){ //All Perimeters of interger triangles are even
 		for(curr=0, a=1;a<p-1;a++){
 			for(b=a;b<=p-a-b;b++){
 				if(a*a+b*b==(p-a-b)*(p-a-b)){

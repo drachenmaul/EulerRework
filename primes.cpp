@@ -120,7 +120,32 @@ void primelistfromsieve(std::vector<bool> sieve, std::vector<unsigned> &liste){
 	}
 }
 
+bool Truncatable(int prim){
+	int tmp;
 
+
+	//Teste auf wegnehmen von rechter Seite
+
+	for(tmp=prim ; tmp>0 ; tmp/=10){
+		if(!IsPrime(tmp))
+			return false;
+	}
+
+	int i,l;
+	for(l=0,tmp=prim;tmp!=0;tmp/=10,l++); //bestimme länge der zahl
+	//Teste auf wegnehmen von linker Seite
+
+	int teiler;
+	for(teiler=pow(10,l-1),tmp=prim,i=0;i<l;i++,tmp%=teiler,teiler/=10){
+		if(!IsPrime(tmp))
+			return false;
+
+
+	}
+
+
+	return true;
+}
 
 
 

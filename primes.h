@@ -17,6 +17,7 @@ unsigned primefactors(unsigned long long number, std::vector<unsigned> &factors,
 bool IsPrime(int number);
 unsigned NextPrime(int number);
 void primelistfromsieve(std::vector<bool> sieve, std::vector<unsigned> &liste);
+bool Truncatable(int prime);
 
 
 #endif /* PRIMES_H_ */
