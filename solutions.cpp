@@ -296,6 +296,39 @@ void euler15(){
 }
 
 
+void euler16(){
+	//What is the sum of the digits of the number 2^1000?
+
+	//25% slower but no Bigints
+
+	std::vector<unsigned> zahl;			//Hier werden die einzelnen Ziffern gespeichert
+	zahl.push_back(1);					//Initialisiere mit 1
+
+	for(unsigned i=0 ; i<1000 ; i++){
+		for(unsigned j=0 ; j<zahl.size() ; j++)	//Multipliziere alles mit 2
+			zahl[j]*=2;
+		for(unsigned j=0 ; j<zahl.size()-1 ; j++)	//Gucke ob irgendwas größer als 10 ist, wenn ja übertrage ins nächste Feld
+			if(zahl[j]>9){
+				zahl[j+1]+=(zahl[j]/10);
+				zahl[j]%=10;
+			}
+		if(zahl[zahl.size()-1]>9){ //Gucke ob letzter Eintrag größer als 10 ist wenn ja füge neues element an
+			zahl.push_back(zahl[zahl.size()-1]/10);
+			zahl[zahl.size()-2]%=10;
+
+		}
+	}
+	unsigned summe,i;
+	for(summe=0, i=0 ; i<zahl.size() ; i++) //Summiere alle Elemente auf
+		summe+=zahl[i];
+
+
+	std::cout << summe << std::endl;
+
+}
+
+
+
 
 void euler17(){
 	/*
@@ -312,10 +345,6 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 		sum+=Lettercount(i);
 
 	std::cout << sum << std::endl;
-
-
-
-
 }
 
 void euler19(){
@@ -773,6 +802,24 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
 
 
 }
+
+
+void euler45(){
+	//It can be verified that T_285 = P_165 = H_143 = 40755.
+	//Find the next triangle number that is also pentagonal and hexagonal.
+
+	//perf x885
+
+	int i;
+	//All Triangle numbers are Hexagonal, only check pentagonal
+	for(i = 286 ; !IsPentagonal(Triangle(i)) ;i++);
+
+	std::cout << Triangle(i) << std::endl;
+
+
+}
+
+
 
 
 void euler46(){
