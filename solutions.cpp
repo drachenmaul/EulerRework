@@ -1163,6 +1163,28 @@ void euler187(){
 }
 
 
+void euler206(){
+/* Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
+where each “_” is a single digit. */
+
+	//No noticable performance difference
+
+	long long i, j;
+	long long val;
+	int ziffer[]= {0,9,8,7,6,5,4,3,2,1};
+
+	for(i=1e9, j=0 ; j<10 ; i++){
+		val=i*i;
+		for(j=0 ; j<10 ; j++){
+			if(val % 10 !=ziffer[j])
+				break;
+			val/=100;
+		}
+	}
+	std::cout << i << std::endl;
+}
+
+
 void euler357(){
 /*
 	Consider the divisors of 30: 1,2,3,5,6,10,15,30.
