@@ -30,6 +30,8 @@ unsigned Faculty(unsigned number);
 bool IsBinaryPalindrom(unsigned number);
 bool IsBasePalindrom(unsigned number, unsigned base);
 bool IsBouncy(int number);
+unsigned long long Triangle(unsigned n);	//Generates Triangle numbers
+bool IsPentagonal(unsigned long long number);
 
 
 #endif /* MISC_H_ */

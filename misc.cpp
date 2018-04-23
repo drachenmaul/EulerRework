@@ -8,6 +8,7 @@
 
 
 #include <iostream>
+#include <cmath>
 #include "misc.h"
 
 
@@ -331,10 +332,16 @@ bool IsBouncy(int number){
 
 
 
+unsigned long long Triangle(unsigned n){
+	return (unsigned long long) n*(n+1)/2;
+}
 
 
-
-
+bool IsPentagonal(unsigned long long number){
+	double result=1./6+sqrt(1./36+(2./3)*number);
+	double intpart;
+	return std::modf(result, &intpart) == 0.0;
+}
 
 
 
