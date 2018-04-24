@@ -804,6 +804,41 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
 }
 
 
+void euler44(){
+	//Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference are pentagonal and D = |Pk − Pj| is minimised; what is the value of D?
+	//perf x 67
+
+	int diff=0;
+	int pentagon[3001]; //Pentagonal numbers go here
+	pentagon[0]=0;
+	for(int i=1;i<3001;i++)	//initialise array
+		pentagon[i]=Pentagon(i);
+	std::vector<bool> ptest;	//lookuptable for pentagonal numbers
+	ptest.resize(2*pentagon[3000]+1,false);
+	int i,p;
+	for(i=1, p=1 ; p<2*pentagon[3000]+1 ; i++, p=Pentagon(i)){
+		ptest[p]=true;
+	}
+
+
+	for(int i = 1; i < 3001; i++)
+		for(int j = i+1 ; j < 3001 ; j++){
+			if(ptest[pentagon[i]+pentagon[j]] && ptest[pentagon[j]-pentagon[i]]){
+					diff=pentagon[j]-pentagon[i];
+					goto endloop;	//found solution, break out of both loops
+			}
+		}
+	endloop:
+	std::cout << diff << std::endl;
+
+
+	//TODO: Anständiges Abbruchkriterium
+}
+
+
+
+
+
 void euler45(){
 	//It can be verified that T_285 = P_165 = H_143 = 40755.
 	//Find the next triangle number that is also pentagonal and hexagonal.
