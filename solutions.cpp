@@ -617,6 +617,25 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 }
 
 
+void euler31(){
+	//How many different ways can £2 be made using any number of coins?
+	//perf x1777
+
+	int coins[8] = {1, 2, 5, 10, 20, 50, 100, 200};	//Array if coin values
+	int amount = 200; 								//What amount of money do I want?
+	int ways[amount+1]={0};						//gonna save the possible ways to give out amount money
+	ways[0]=1;									//there is one way to not give out any money
+	for(int i=0 ; i<8 ; i++){					//iterative loop that works out all possibilities from bottom to top
+		for(int j=coins[i]; j <= amount ; j++)
+			ways[j]+=ways[j-coins[i]];
+	}
+
+	std::cout << ways[amount] << std::endl;
+}
+
+
+
+
 void euler34(){
 	/*145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
