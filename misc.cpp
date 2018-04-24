@@ -9,7 +9,9 @@
 
 #include <iostream>
 #include <cmath>
+#include <vector>
 #include "misc.h"
+#include "primes.h"
 
 
 unsigned SumDivisibleBy(unsigned n, unsigned limit){ //Erklärung in Problem 1 Overview
@@ -369,20 +371,18 @@ unsigned GCD(unsigned a, unsigned b){
 
 
 
-unsigned EulerPhi(unsigned n){
-	   unsigned ret = 1,i,pow;
-	   for (i = 2; n != 1; i++){
-	     pow = 1;
-	     if(i*i>n)break;
-	     while (!(n%i))
-	     {
-	       n /= i;
-	       pow *= i;
-	     }
-	     ret *= (pow - (pow/i));
-	    }
-	    if(n!=1)ret*=(n-1);
-	    return ret;
+unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes){
+	std::vector<unsigned> factors;
+	unsigned anzahl=primefactors(n, factors, primes);
+	double ret=n;
+	for(unsigned i=0 ; i <anzahl ; i++){
+		ret*=(1-1./factors[i]);
+	}
+	return ret;
+
+
+
+
 }
 
 

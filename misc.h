@@ -8,6 +8,8 @@
 #ifndef MISC_H_
 #define MISC_H_
 
+#include <vector>
+
 
 unsigned SumDivisibleBy(unsigned n, unsigned limit); //Gibt Summe aller Zahlen unter limit die durch n teilbar sind zurück
 unsigned long long CountRoutes(unsigned n); //Counts Routes through a nxn Square from top-left to bottom-right moving only right and down
@@ -34,7 +36,7 @@ unsigned long long Triangle(unsigned n);	//Generates Triangle numbers
 bool IsPentagonal(unsigned long long number);
 unsigned long long Pentagon(unsigned n);
 unsigned GCD(unsigned a, unsigned b);
-unsigned EulerPhi(unsigned n);
+unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes);
 
 
 #endif /* MISC_H_ */
