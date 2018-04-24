@@ -1127,12 +1127,14 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 void euler69(){
 	//See Problem page
 
+	unsigned limit=1e6;
+	std::vector<unsigned> primes;
+	initprimelist(limit,primes);
 	double max=0;
 	unsigned maxi=0;
 	unsigned phi;
-
-	for(unsigned i = 2 ; i<=1e6 ; i++){
-		phi=EulerPhi(i);
+	for(unsigned i = 2 ; i<=limit ; i++){
+		phi=EulerPhi(i,primes);
 		if(((double)i/phi)>max){
 			maxi=i;
 			max=(double)i/phi;
