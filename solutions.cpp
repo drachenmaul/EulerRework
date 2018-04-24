@@ -353,6 +353,58 @@ void euler19(){
 	std::cout << (12*100)/7 << std::endl;
 }
 
+
+
+
+void euler20(){
+	//Find the sum of the digits in the number 100!
+	//almost no performance improvement
+
+	//basicly a copy if the code of 16
+
+	std::vector<unsigned> zahl;			//Hier werden die einzelnen Ziffern gespeichert
+	zahl.push_back(1);					//Initialisiere mit 1
+
+	for(unsigned i=1 ; i<=100 ; i++){
+		for(unsigned j=0 ; j<zahl.size() ; j++)	//Multipliziere alles mit i
+			zahl[j]*=i;
+		for(unsigned j=0 ; j<zahl.size()-1 ; j++)	//Gucke ob irgendwas größer als 10 ist, wenn ja übertrage ins nächste Feld
+			if(zahl[j]>9){
+				zahl[j+1]+=(zahl[j]/10);
+				zahl[j]%=10;
+			}
+		while(zahl[zahl.size()-1]>9){ //Gucke ob letzter Eintrag größer als 10 ist wenn ja füge neues element an
+			zahl.push_back(zahl[zahl.size()-1]/10);
+			zahl[zahl.size()-2]%=10;
+
+		}
+	}
+	unsigned summe,i;
+	for(summe=0, i=0 ; i<zahl.size() ; i++) //Summiere alle Elemente auf
+		summe+=zahl[i];
+
+
+	std::cout << summe << std::endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void euler21(){
 	/*
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
