@@ -337,11 +337,21 @@ unsigned long long Triangle(unsigned n){
 }
 
 
+
 bool IsPentagonal(unsigned long long number){
-	double result=1./6+sqrt(1./36+(2./3)*number);
+	double result = (sqrt(1 + 24 * number) + 1.0) / 6.0;
 	double intpart;
 	return std::modf(result, &intpart) == 0.0;
 }
+
+
+unsigned long long Pentagon(unsigned n){
+	return (unsigned long long)(n*(3*n-1))/2;
+}
+
+
+
+
 
 
 
