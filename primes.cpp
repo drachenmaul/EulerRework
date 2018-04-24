@@ -41,7 +41,7 @@ void initprimelist(unsigned maxprime, std::vector<unsigned> &liste){
 }
 
 
-//This function writes the DISTINCT prime factors in the vector factors
+//This function writes the DISTINCT prime factors in the vector factors and returns the number of distinct prime factors
 unsigned primefactors(unsigned long long number, std::vector<unsigned> &factors, std::vector<unsigned> &primes){
 	factors.clear();
 	if(number==0)
