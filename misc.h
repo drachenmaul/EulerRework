@@ -33,6 +33,8 @@ bool IsBouncy(int number);
 unsigned long long Triangle(unsigned n);	//Generates Triangle numbers
 bool IsPentagonal(unsigned long long number);
 unsigned long long Pentagon(unsigned n);
+unsigned GCD(unsigned a, unsigned b);
+unsigned EulerPhi(unsigned n);
 
 
 #endif /* MISC_H_ */

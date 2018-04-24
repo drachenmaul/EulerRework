@@ -351,7 +351,39 @@ unsigned long long Pentagon(unsigned n){
 
 
 
+unsigned GCD(unsigned a, unsigned b){
+	while( a != 0 && b != 0){
+		if(a < b)
+			b%=a;
+		else
+			a%=b;
+	}
+	if(a==0)
+		return b;
+	else
+		return a;
+}
 
+
+
+
+
+
+unsigned EulerPhi(unsigned n){
+	   unsigned ret = 1,i,pow;
+	   for (i = 2; n != 1; i++){
+	     pow = 1;
+	     if(i*i>n)break;
+	     while (!(n%i))
+	     {
+	       n /= i;
+	       pow *= i;
+	     }
+	     ret *= (pow - (pow/i));
+	    }
+	    if(n!=1)ret*=(n-1);
+	    return ret;
+}
 
 
 
