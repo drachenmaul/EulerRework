@@ -622,7 +622,7 @@ void euler31(){
 	//perf x1777
 
 	int coins[8] = {1, 2, 5, 10, 20, 50, 100, 200};	//Array if coin values
-	int amount = 200; 								//What amount of money do I want?
+	const int amount = 200; 								//What amount of money do I want?
 	int ways[amount+1]={0};						//gonna save the possible ways to give out amount money
 	ways[0]=1;									//there is one way to not give out any money
 	for(int i=0 ; i<8 ; i++){					//iterative loop that works out all possibilities from bottom to top
@@ -1124,7 +1124,29 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 
 
 
+void euler69(){
+	//See Problem page
 
+	double max=0;
+	unsigned maxi=0;
+	unsigned phi;
+
+	for(unsigned i = 2 ; i<=1e6 ; i++){
+		phi=EulerPhi(i);
+		if(((double)i/phi)>max){
+			maxi=i;
+			max=(double)i/phi;
+		}
+	}
+
+	std::cout << maxi << " " << max << std::endl;
+
+
+
+
+
+
+}
 
 
 
