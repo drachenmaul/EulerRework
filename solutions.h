@@ -39,7 +39,7 @@ void euler25();
 
 void euler27();
 void euler28();
-
+void euler29();
 void euler30();
 void euler31();
 
