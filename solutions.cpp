@@ -5,10 +5,12 @@
  *      Author: drachenmaul
  */
 
-
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <cmath>
 #include <algorithm>
+#include <iomanip>
+#include <stdio.h>
 #include "misc.h"
 #include "primes.h"
 
@@ -1459,6 +1461,48 @@ where each “_” is a single digit. */
 	}
 	std::cout << i << std::endl;
 }
+
+
+void euler317(){
+	/*
+	 *
+A firecracker explodes at a height of 100 m above level ground. It breaks into a large number of very small fragments, which move in every direction; all of them have the same initial velocity of 20 m/s.
+
+We assume that the fragments move without air resistance, in a uniform gravitational field with g=9.81 m/s2.
+
+Find the volume (in m3) of the region through which the fragments move before reaching the ground. Give your answer rounded to four decimal places.
+	 *
+	 */
+
+	//See overview for proof of end formula
+
+	double g=9.81;
+	int v=20;
+	int h=100;
+
+	std::cout <<std::fixed << -M_PI/2*pow((v*v)/(2*g)+h,2)/(g/(2*v*v)) << std::endl;
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void euler357(){
