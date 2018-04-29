@@ -9,7 +9,7 @@
 #define SOLUTIONS_H_
 
 
-//Reworks todo: 8, 11, 13, 18, 42, 53, 56, 67
+//Reworks todo: 8, 11, 13, 18, 53, 56, 67
 
 void euler1();
 void euler2();
@@ -52,7 +52,7 @@ void euler37();
 void euler39();
 
 void euler41();
-
+void euler42();
 void euler43();
 void euler44();
 void euler45();

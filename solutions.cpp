@@ -850,6 +850,50 @@ void euler41(){
 }
 
 
+void euler42(){
+	/*	By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is 19 + 11 + 25 = 55 = t10. If the word value is a triangle number then we shall call the word a triangle word.
+		Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common English words, how many are triangle words?
+	 */
+
+	//Minimal perf improvement
+	FILE* datei;
+
+	int count;
+	char word;
+	unsigned wordvalue;
+
+	/*Idee wie folgt, ich lese aus der Datei und gucke ob mein eingelesener Wert zwischen A und Z liegt, falls ich auf
+	 * ein Komma treffe, schaue ich nach ob der Wortwert eine Triangle-Number ist, wenn ja erhöhe ich den Zähler*/
+	datei=fopen("p042.txt","r");
+	for(wordvalue=0,count=0;(fscanf(datei,"%c",&word))!=EOF;){
+		if(word>64&&word<91){
+			wordvalue+=word-64;
+		}
+		if(word==44){
+			if(IsTriangular(wordvalue))
+				count++;
+			wordvalue=0;
+		}
+	}
+	/*Hier wird der Check nochmal wiederholt, da das letzte Wort nicht mit einem Komma abgeschlossen wird*/
+	if(IsTriangular(wordvalue))
+		count++;
+	std::cout << count << std::endl;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 void euler43(){
 	/*
 
@@ -1480,7 +1524,7 @@ Find the volume (in m3) of the region through which the fragments move before re
 	int v=20;
 	int h=100;
 
-	std::cout <<std::fixed << -M_PI/2*pow((v*v)/(2*g)+h,2)/(g/(2*v*v)) << std::endl;
+	std::cout <<std::fixed << M_PI/2*pow((v*v)/(2*g)+h,2)/(g/(2*v*v)) << std::endl;
 
 
 
