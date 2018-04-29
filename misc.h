@@ -38,6 +38,7 @@ unsigned long long Pentagon(unsigned n);
 unsigned GCD(unsigned a, unsigned b);
 unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes);
 bool IsTriangular(unsigned long long number);
+unsigned long long BinomKoeff(int n, int r);
 
 
 #endif /* MISC_H_ */

@@ -387,3 +387,34 @@ bool IsTriangular(unsigned long long number){
 	return std::modf(result, &intpart) == 0.0;
 }
 
+
+
+
+
+
+
+
+unsigned long long BinomKoeff(int n, int r) {
+    if(r > n / 2)
+    	r = n - r; // because C(n, r) == C(n, n - r)
+    unsigned long long ans = 1;
+    int i;
+
+    for(i = 1; i <= r; i++) {
+        ans *= n - r + i;
+        ans /= i;
+    }
+
+    return ans;
+}
+
+
+
+
+
+
+
+
+
+
+
