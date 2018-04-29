@@ -37,6 +37,7 @@ bool IsPentagonal(unsigned long long number);
 unsigned long long Pentagon(unsigned n);
 unsigned GCD(unsigned a, unsigned b);
 unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes);
+bool IsTriangular(unsigned long long number);
 
 
 #endif /* MISC_H_ */

@@ -379,11 +379,11 @@ unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes){
 		ret*=(1-1./factors[i]);
 	}
 	return ret;
-
-
-
-
 }
 
-
+bool IsTriangular(unsigned long long number){
+	double result = (sqrt(1+8*number)-1)/2.;
+	double intpart;
+	return std::modf(result, &intpart) == 0.0;
+}
 
