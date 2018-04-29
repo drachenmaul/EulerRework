@@ -1138,7 +1138,23 @@ void euler52(){
 
 }
 
+void euler53(){
 
+
+
+	int n,r;
+	int count;
+
+	for(count=0,n=0;n<=100;n++){
+		for(r=0;r<=n;r++)
+			if(BinomKoeff(n,r)>1000000)
+				count++;
+	}
+
+
+
+	std::cout << count << std::endl;
+}
 
 
 void euler58(){
