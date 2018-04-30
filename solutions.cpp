@@ -1287,7 +1287,23 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 
 
 
+void euler76(){
+	//How many different ways can one hundred be written as a sum of at least two positive integers?
 
+	const int amount = 100;							//What is my target number
+
+	int ways[amount+1]={0};						//gonna save the possible ways to give out amount money
+	ways[0]=1;									//there is one way to not give out any money
+	for(int i=0 ; i<100 ; i++){					//iterative loop that works out all possibilities from bottom to top
+		for(int j=i+1; j <= amount ; j++)
+			ways[j]+=ways[j-i-1];
+	}
+
+	std::cout << ways[amount]-1 << std::endl;
+
+
+
+}
 
 
 
@@ -1470,6 +1486,10 @@ How many reversible numbers are there below one-billion (10^9)?
 
 
 }
+
+
+
+
 
 
 
