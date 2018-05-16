@@ -15,6 +15,7 @@
 #include "primes.h"
 
 
+
 //Basecost to for main and time measurement: 2.182.036
 
 
@@ -1289,6 +1290,7 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 
 void euler76(){
 	//How many different ways can one hundred be written as a sum of at least two positive integers?
+	//modified code from problem 31
 
 	const int amount = 100;							//What is my target number
 
@@ -1308,9 +1310,14 @@ void euler76(){
 
 
 
+
+
+
+
+
 void euler87(){
 	//How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?
-	//Performance doubled if primelist not present, else roughly equal
+	//Performance x10 if primelist not present, else roughly equal
 	unsigned i, j, k;
 	std::vector<bool> numbers(50000000, false);
 	std::vector<unsigned> prime;
@@ -1489,7 +1496,28 @@ How many reversible numbers are there below one-billion (10^9)?
 
 
 
+void euler173(){
+	long long res=0;	//ergebnis
+	int N=1e6;			//maximale platten
+	long n;
+	double s;			//seitenlänge loch
+	for(n=3; 4*n<=N+4;n++){
+		if(n*n<=N){
+			res+=((n+1)/2)-1;
+		}else{
+			if(std::modf(sqrt(n*n-N), &s) == 0.0){//wenn perfect square dekrementiere
+				s--;
+			}
+			if((int)s%2==1 && n%2==0){//loch und rahmen müssen beide gerade/ungerade sein
+				s--;
+			}
+			res+=(n+1)/2-1;
+			res-=((int)s+1)/2;
+		}
+	}
 
+	std::cout << res << std::endl;
+}
 
 
 

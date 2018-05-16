@@ -78,6 +78,8 @@ void euler69();
 void euler75();//WIP
 void euler76();
 
+
+
 void euler87();
 
 
@@ -95,6 +97,9 @@ void euler112();
 
 
 void euler145();
+
+
+void euler173();
 
 void euler187();
 void euler206();
