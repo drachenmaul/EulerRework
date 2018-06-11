@@ -353,7 +353,7 @@ unsigned long long Pentagon(unsigned n){
 
 
 
-unsigned GCD(unsigned a, unsigned b){
+unsigned long GCD(unsigned long a, unsigned long b){
 	while( a != 0 && b != 0){
 		if(a < b)
 			b%=a;

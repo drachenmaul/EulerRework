@@ -35,7 +35,7 @@ bool IsBouncy(int number);
 unsigned long long Triangle(unsigned n);	//Generates Triangle numbers
 bool IsPentagonal(unsigned long long number);
 unsigned long long Pentagon(unsigned n);
-unsigned GCD(unsigned a, unsigned b);
+unsigned long GCD(unsigned long a, unsigned long b);
 unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes);
 bool IsTriangular(unsigned long long number);
 unsigned long long BinomKoeff(int n, int r);
