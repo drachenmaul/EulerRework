@@ -423,6 +423,7 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 	//perf x79
 	unsigned sum=0;
+
 	for(unsigned a = 2 ; a<10000 ; a++){
 		unsigned b = SumOfProperDivisors(a);
 		if(a<b)
@@ -1497,6 +1498,8 @@ How many reversible numbers are there below one-billion (10^9)?
 	unsigned count=0;
 	unsigned limit=1e8;  //Should be 1e9, butThere are no 9 digit reversible numbers
 
+
+	#pragma omp parallel for reduction (+:count) //perf x4
 	for(i=0;i<limit;i++){
 		if(IsReversible(i))
 			count++;
@@ -1643,6 +1646,8 @@ void euler357(){
 	// 1 is the only odd number where i+1 is prime
 	summe=1;
     // scan only even numbers >= 2 of the form 2+4k
+
+	#pragma omp parallel for reduction (+:summe)// perf x2
 	for (unsigned int n = 2; n <= grenze; n += 4){
 		if (!sieve[n+1])       // checke für teiler 1
 			continue;
