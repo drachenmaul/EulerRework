@@ -15,6 +15,9 @@
 #include "primes.h"
 
 
+#include <omp.h>
+
+
 
 //Basecost to for main and time measurement: 2.182.036
 
@@ -1254,11 +1257,18 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 
 	std::vector <int> zahlen(1500001,0);
 	std::vector<long long> square(1500001);
+	#pragma omp parallel for
 	for( long long i = 0; i<=1500000;i++)
 		square[i]=i*i;
 
 	int a,b,i,res;
 	int limit=1500000;
+
+
+	#pragma omp declare reduction(vec_int_plus : std::vector<int> : std::transform(omp_out.begin(), omp_out.end(), omp_in.begin(), omp_out.begin(), std::plus<int>())) initializer(omp_priv = omp_orig)
+
+
+	#pragma omp parallel for schedule(dynamic) private(i,b) reduction (vec_int_plus:zahlen)
 	for(a=1;a<limit;a++){
 		for(b=a;b<limit-a-1;b++){
 			long long tmp = square[a]+square[b];
@@ -1274,7 +1284,11 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 		}
 	}
 
-	for(res=0,i=0;i<1500001;i++)
+
+	res=0;
+
+	#pragma omp parallel for reduction (+:res)
+	for(i=0;i<1500001;i++)
 		if(zahlen[i]==1){
 			res++;
 		}
