@@ -410,6 +410,25 @@ unsigned long long BinomKoeff(int n, int r) {
 
 
 
+unsigned NumberOfDivisors(unsigned number){
+	if(number==0)
+		return 0;
+	unsigned count=0;
+
+	for(int unsigned i=1; i*i<number;i++){
+		if(number%i==0){
+			count+=2;
+		}
+	}
+
+	double intpart;
+	if(modf(sqrt(number),&intpart)==0)
+		count++;
+
+
+	return count;
+}
+
 
 
 

@@ -39,6 +39,7 @@ unsigned long GCD(unsigned long a, unsigned long b);
 unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes);
 bool IsTriangular(unsigned long long number);
 unsigned long long BinomKoeff(int n, int r);
+unsigned NumberOfDivisors(unsigned number);
 
 
 #endif /* MISC_H_ */
