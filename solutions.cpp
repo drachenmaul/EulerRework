@@ -1538,6 +1538,54 @@ void euler173(){
 
 
 
+void euler179(){
+	/* Find the number of integers 1 < n < 10^7, for which n and n + 1 have the same number of positive divisors.
+	 * For example, 14 has the positive divisors 1, 2, 7, 14 while 15 has 1, 3, 5, 15.
+	 */
+	unsigned limit=1e7;
+	std::vector<unsigned> teiler(limit,0);
+
+	//OMP performancegain ~x4 (On E480)
+
+	#pragma omp parallel for schedule(dynamic)
+	for(unsigned i=0; i<limit; i++)			//Berechne und speichere alle teileranzahlen
+		teiler[i]=NumberOfDivisors(i);
+
+	unsigned count=0;
+
+
+	#pragma omp parallel for reduction (+:count)
+	for(unsigned i=1; i<limit-1; i++)
+		if(teiler[i]==teiler[i+1])
+			count++;
+
+
+
+	std::cout << count << std::endl;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void euler187(){
 	//A composite is a number containing at least two prime factors.
 	//How many composite integers, n < 10^8, have precisely two, not necessarily distinct, prime factors?

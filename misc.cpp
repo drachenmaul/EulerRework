@@ -415,7 +415,7 @@ unsigned NumberOfDivisors(unsigned number){
 		return 0;
 	unsigned count=0;
 
-	for(int unsigned i=1; i*i<number;i++){
+	for(unsigned i=1; i*i<number;i++){
 		if(number%i==0){
 			count+=2;
 		}

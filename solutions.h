@@ -101,6 +101,8 @@ void euler145();
 
 void euler173();
 
+void euler179();
+
 void euler187();
 void euler206();
 void euler317();
