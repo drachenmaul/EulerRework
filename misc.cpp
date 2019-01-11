@@ -431,6 +431,86 @@ unsigned NumberOfDivisors(unsigned number){
 
 
 
+double NumberOfEmperors(unsigned yearlength){
+
+
+	std::vector<bool> days(yearlength,false);
+
+	double emps=0;
+
+	unsigned non_holidays = yearlength;
+
+	while(true){
+		if(non_holidays>10000){
+			std::cout << "underflow" << std::endl;
+			exit(1);
+		}
+
+		//probability to hit a non holiday
+		double p = (double)non_holidays/yearlength;
+
+		//expected number of emperors until you hit a non holiday
+		double expected_emps=1/p;
+
+
+		//add them to the total
+		emps+=expected_emps;
+
+
+
+		//pick which non holiday is the birthday
+		unsigned birthday=non_holidays*(rand()/(double)RAND_MAX);
+
+
+		//search first instance of a non holiday
+		unsigned i = 0;
+		while(days[i])
+			i++;
+		//search the corresponding unset day and make it a holiday
+		for(unsigned j=0 ; i < days.size() ; i++){
+			if(j==birthday && !days[i]){
+				days[i]=true;
+				break;
+			}
+			if(!days[i])
+				j++;
+		}
+
+
+
+		//remove a non-holiday
+		non_holidays--;
+
+		//assign the actual day of the year
+		birthday = i;
+
+
+		//check 2 to the left and 2 to the right for birthdays and set day in the middle as holiday if necessary
+		//reduce non holidays if necessary
+		if(days[(birthday+2)%yearlength] && !days[(birthday+1)%yearlength]){
+			days[(birthday+1)%yearlength]=true;
+			non_holidays--;
+		}
+
+		if(days[(birthday-2+yearlength)%yearlength] && !days[(birthday-1+yearlength)%yearlength]){
+			days[(birthday-1+yearlength)%yearlength]=true;
+			non_holidays--;
+		}
+
+
+
+
+
+		if(non_holidays==0)
+			return emps;
+
+	}
+	std::cout << "Something went wrong when calculating emperors" << std::endl;
+	return -1;
+
+}
+
+
 
 
 

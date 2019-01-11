@@ -9,6 +9,7 @@
 #include <iostream>
 #include "solutions.h"
 
+using namespace std;
 
 
 int main(){
@@ -16,14 +17,14 @@ int main(){
 	start=clock();
 
 
+	euler635();
 
-	euler357();
+
 
 
 	stop=clock();
 
-	std::cout << "Runtime: " << (stop - start)/CLOCKS_PER_SEC << "s" <<std::endl;
-
+	cout << "Runtime: " << (stop - start)/CLOCKS_PER_SEC << "s" <<endl;
 
 
 	return 0;

@@ -65,7 +65,7 @@ void euler50();
 void euler52();
 void euler53();
 
-
+void euler55();
 
 
 void euler58();
@@ -107,5 +107,15 @@ void euler187();
 void euler206();
 void euler317();
 void euler357();
+
+
+void euler407();
+
+
+
+
+
+void euler634();
+void euler635();
 
 #endif /* SOLUTIONS_H_ */

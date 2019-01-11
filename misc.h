@@ -9,6 +9,7 @@
 #define MISC_H_
 
 #include <vector>
+#include <random>
 
 
 unsigned SumDivisibleBy(unsigned n, unsigned limit); //Gibt Summe aller Zahlen unter limit die durch n teilbar sind zurück
@@ -40,6 +41,7 @@ unsigned EulerPhi(unsigned n, std::vector<unsigned> &primes);
 bool IsTriangular(unsigned long long number);
 unsigned long long BinomKoeff(int n, int r);
 unsigned NumberOfDivisors(unsigned number);
+double NumberOfEmperors(unsigned yearlength);
 
 
 #endif /* MISC_H_ */

@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <stdio.h>
+#include <random>
 #include "misc.h"
 #include "primes.h"
 
@@ -963,7 +964,6 @@ void euler44(){
 		ptest[p]=true;
 	}
 
-
 	for(int i = 1; i < 2501; i++)
 		for(int j = i+1 ; j < 2501 ; j++){
 			if(ptest[pentagon[i]+pentagon[j]] && ptest[pentagon[j]-pentagon[i]]){
@@ -1162,6 +1162,27 @@ void euler53(){
 }
 
 
+
+void euler55(){
+	//solution on wikipedia...
+
+	//TODO: Implement something
+
+	std::cout << 249 << std::endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 void euler58(){
 	/*
 
@@ -1294,7 +1315,7 @@ Given that L is the length of the wire, for how many values of L ≤ 1,500,000 c
 			res++;
 		}
 
-	//TODO: THIS ONE TAKE AN HOUR+
+	//TODO: THIS ONE TAKE AN HOUR+ without omp
 	std::cout << res << std::endl;
 
 
@@ -1460,7 +1481,6 @@ Clearly there cannot be any bouncy numbers below one-hundred, but just over half
 Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.
 
 Find the least number for which the proportion of bouncy numbers is exactly 99%.
-	 *
 	 */
 	//Performance x 2.5
 
@@ -1496,7 +1516,7 @@ How many reversible numbers are there below one-billion (10^9)?
 
 	unsigned i;
 	unsigned count=0;
-	unsigned limit=1e8;  //Should be 1e9, butThere are no 9 digit reversible numbers
+	unsigned limit=1e8;  //Should be 1e9, but: There are no 9 digit reversible numbers
 
 
 	#pragma omp parallel for reduction (+:count) //perf x4
@@ -1545,7 +1565,7 @@ void euler179(){
 	unsigned limit=1e7;
 	std::vector<unsigned> teiler(limit,0);
 
-	//OMP performancegain ~x4 (On E480)
+	//OMP performance ~x4 (On E480)
 
 	#pragma omp parallel for schedule(dynamic)
 	for(unsigned i=0; i<limit; i++)			//Berechne und speichere alle teileranzahlen
@@ -1566,17 +1586,6 @@ void euler179(){
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1719,8 +1728,103 @@ void euler357(){
 
 
 
+void euler407(){
+	/*
+
+	If we calculate a^2 mod 6 for 0 ≤ a ≤ 5 we get: 0,1,4,3,4,1.
+
+	The largest value of a such that a^2 ≡ a mod 6 is 4.
+	Let's call M(n) the largest value of a < n such that a^2 ≡ a (mod n).
+	So M(6) = 4.
+
+	Find ∑M(n) for 1 ≤ n ≤ 10^7.
+	 */
 
 
+	unsigned limit=1e7;
+	std::vector<long> squares(limit+1);
+	std::vector<bool> primes;
+	initprimesieve(limit,primes);
+
+	#pragma omp parallel for schedule(dynamic)
+	for(long i=0 ; i<=limit ; i++)					//i is long to prevent multiplication overflow
+		squares[i]=i*i;
+
+
+	long sum = 0;
+	#pragma omp parallel for schedule(dynamic) reduction (+:sum)
+	for(unsigned n=1 ; n<=limit ; n++){
+		if(primes[n]){
+			sum+=1;
+			continue;
+		}
+		for(int a=n-1 ; a>=0 ; a--){			//go from highest value down and add first hit to the sum
+			if(squares[a]%n==a){
+				sum+=a;
+				break;
+			}
+		}
+	}
+
+	std::cout << sum << std::endl;
+
+
+	//TODO: Optimise, this takes 8+ hours
+}
+
+
+
+void euler634(){	//TODO: WIP
+	std::vector<long> found;
+	long limit=9e16;
+	long a=2;
+	long b=2;
+	long c;
+
+
+
+
+	for(c=a*a*b*b*b ; c<=limit; c=2*2*b*b*b){
+		for(a=2; a*a <=limit/(b*b*b) ; a++){
+			found.push_back(a*a*b*b*b);
+		}
+		b++;
+	}
+
+	sort(found.begin(),found.end());
+	found.erase( unique( found.begin(), found.end() ), found.end() );
+
+
+	std::cout << found.size() << std::endl;
+
+
+
+}
+
+
+void euler635(){
+	unsigned yearlength=5;
+
+	srand(time(NULL));
+
+
+
+	unsigned runs=1e7;
+
+	double empsum=0;
+
+	//#pragma omp parallel for schedule(dynamic) reduction(+:empsum)
+	for(unsigned i = 0 ; i < runs ; i++){
+		empsum+=NumberOfEmperors(yearlength);
+	}
+
+
+	empsum/=runs;
+
+
+	std::cout << std::fixed <<std::setprecision(4) << empsum << std::endl;
+
+}
 
 
 
